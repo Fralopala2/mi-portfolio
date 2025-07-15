@@ -190,3 +190,55 @@ $(function(){
   $('.navigation-close').hover(cursorhover,cursor);
 
 })
+// EmailJS Configuration and Form Handling
+$(document).ready(function() {
+    // Initialize EmailJS
+    emailjs.init("zmJ9i6ZXtACzNV-m-"); // Reemplaza con tu Public Key de EmailJS
+    
+    // Handle form submission
+    $('#myForm').on('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form data
+        const formData = {
+            from_name: $('#name').val(),
+            from_email: $('#email').val(),
+            subject: $('#subject').val(),
+            message: $('#body').val()
+        };
+        
+        // Validate required fields
+        if (!formData.from_name || !formData.from_email || !formData.subject || !formData.message) {
+            alert('Por favor, rellena todos los campos.');
+            return;
+        }
+        
+        // Show loading state
+        $('#submit-text').hide();
+        $('#submit-loading').show();
+        $('#submit').prop('disabled', true);
+        
+        // Send email using EmailJS
+        // Reemplaza 'TU_SERVICE_ID' y 'TU_TEMPLATE_ID' con tus IDs reales
+        emailjs.send('service_wr0980j', 'template_gprtd4d', formData)
+            .then(function(response) {
+                console.log('Email sent successfully!', response.status, response.text);
+                
+                // Success message
+                alert('¡Mensaje enviado con éxito! Te responderé pronto.');
+                
+                // Reset form
+                $('#myForm')[0].reset();
+                
+            }, function(error) {
+                console.log('Failed to send email:', error);
+                alert('Error al enviar el mensaje. Por favor, intenta de nuevo o contacta directamente por email.');
+            })
+            .finally(function() {
+                // Reset button state
+                $('#submit-text').show();
+                $('#submit-loading').hide();
+                $('#submit').prop('disabled', false);
+            });
+    });
+});

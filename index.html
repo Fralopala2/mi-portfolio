@@ -15,6 +15,8 @@
     <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
     <!--main css file-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
+    <!-- EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <link rel="stylesheet" href="css/color-blue.css">
     </head>
     <body>
@@ -578,105 +580,107 @@
     <!--blog end-->
     <!--contact-->
     <div id="contact">
-    <div class="color-changer">
-        <div class="color-panel">
-            <img src="images/gear.png" alt="">
-        </div>
-        <div class="color-selector">
-            <div class="heading">Custom Colors</div>
-            <div class="colors">
-                <ul >
-                <li>
-                    <a href="#0" class="color-purple" title="color-purple"></a>
-                </li>
-                <li>
-                    <a href="#0" class="color-red " title="color-red"></a>
-                </li>
-                <li>
-                    <a href="#0" class="color-malt" title="color-malt"></a>
-                </li>
-                <li>
-                    <a href="#0" class="color-green" title="color-green"></a>
-                </li>
-                <li>
-                    <a href="#0" class="color-blue" title="color-blue"></a>
-                </li>
-                <li>
-                    <a href="#0" class="color-orange" title="color-orange"></a>
-                </li>
-                </ul>
+        <div class="color-changer">
+            <div class="color-panel">
+                <img src="images/gear.png" alt="">
             </div>
-        </div>
-        </div>
-        <div class="contact-header">Contact <span class="color"> Me</span>
-    <div class="contact-header-caption"> <span class="color"> Get</span> In Touch.</div></div>
-    <div class="contact-content">
-        <!--Contact form-->
-            <div class="contact-form">
-                <div class="form-header">
-                    Message Me
+            <div class="color-selector">
+                <div class="heading">Custom Colors</div>
+                <div class="colors">
+                    <ul >
+                    <li>
+                        <a href="#0" class="color-purple" title="color-purple"></a>
+                    </li>
+                    <li>
+                        <a href="#0" class="color-red " title="color-red"></a>
+                    </li>
+                    <li>
+                        <a href="#0" class="color-malt" title="color-malt"></a>
+                    </li>
+                    <li>
+                        <a href="#0" class="color-green" title="color-green"></a>
+                    </li>
+                    <li>
+                        <a href="#0" class="color-blue" title="color-blue"></a>
+                    </li>
+                    <li>
+                        <a href="#0" class="color-orange" title="color-orange"></a>
+                    </li>
+                    </ul>
                 </div>
-                <form id="myForm" action="#">
-                <div class="input-line">
-                    <input  id="name" type="text" placeholder="Name" class="input-name">
-                    <input id="email" type="email" placeholder="Email"  class="input-name">
+            </div>
+            </div>
+            <div class="contact-header">Contact <span class="color"> Me</span>
+        <div class="contact-header-caption"> <span class="color"> Get</span> In Touch.</div></div>
+        <div class="contact-content">
+            <!--Contact form-->
+                <div class="contact-form">
+                    <div class="form-header">
+                        Message Me
+                    </div>
+                    <form id="myForm">
+                    <div class="input-line">
+                        <input id="name" type="text" placeholder="Name" class="input-name" name="from_name" required>
+                        <input id="email" type="email" placeholder="Email" class="input-name" name="from_email" required>
+                    </div>
+                    <input type="text" id="subject" placeholder="Subject" class="input-subject" name="subject" required>
+                    <textarea id="body" class="input-textarea" placeholder="Message" name="message" required></textarea>
+                    <button type="submit" id="submit">
+                        <span id="submit-text">Submit</span>
+                        <span id="submit-loading" style="display: none;">Sending...</span>
+                    </button>
+                    </form>
                 </div>
-                <input type="text" id="subject" placeholder="subject" class="input-subject">
-                <textarea id ="body" class="input-textarea" placeholder="message"></textarea>
-                <button type="button" id ="submit" value="send">Submit</button>
-                </form>
-            
-            </div>
-        <!--Contact form-->
-        <!--Contact information-->
-            <div class="contact-info">
-            <div class="contact-info-header">
-                Contact Info
-            </div>
+            <!--Contact form-->
+            <!--Contact information-->
+        <div class="contact-info">
+                <div class="contact-info-header">
+                    Contact Info
+                </div>
             <div class="contact-info-content">
-            <div class="contect-info-content-line">
-                <img src="./images/icon-name.png" class="icon" alt="name-icon">
-                <div class="contact-info-icon-text">
-                    <h6>Name</h6>
-                    <p>Paco López Alarte</p>
+                <div class="contect-info-content-line">
+                    <img src="./images/icon-name.png" class="icon" alt="name-icon">
+                    <div class="contact-info-icon-text">
+                        <h6>Name</h6>
+                        <p>Paco López Alarte</p>
+                    </div>
                 </div>
-            </div>
-            <div class="contect-info-content-line">
-                <img src="./images/icon-location.png" class="icon" alt="location-icon">
-                <div class="contact-info-icon-text">
-                    <h6>Location</h6>
-                    <p>Valencia, Spain</p>
-            </div>
-            </div>
-            <div class="contect-info-content-line">
-                <img src="./images/icon-phone.png" class="icon" alt="phone-icon">
-                <div class="contact-info-icon-text">
-                    <h6>Call</h6>
-                    <p>+34 655866532</p>
-            </div>
-            </div>
-            
-            <div class="contect-info-content-line">
-                <img src="./images/icon-email.png" class="icon" alt="email-icon">
-                <div class="contact-info-icon-text">
-                    <h6>Email</h6>
-                    <p>Spanocrypt@gmail.com</p>
-            </div>
-            </div>
-        </div>    
-        <!--Contact information end-->
-        </div>    
-    </div>
-        <!--copyright-section-->    
-            <div class="footer">
-                <div class="footer-text">
-                    <img src="./images/copyright.png" alt="copyright-img" class="images" height="14px"> Paco López Alarte 2025.
+                <div class="contect-info-content-line">
+                    <img src="./images/icon-location.png" class="icon" alt="location-icon">
+                    <div class="contact-info-icon-text">
+                        <h6>Location</h6>
+                        <p>Valencia, Spain</p>
+                    </div>
                 </div>
-            </div>
-        <!--copyright-section-->
+                <div class="contect-info-content-line">
+                    <img src="./images/icon-phone.png" class="icon" alt="phone-icon">
+                    <div class="contact-info-icon-text">
+                        <h6>Call</h6>
+                        <p>+34 655866532</p>
+                    </div>
+                </div>
+                
+                <div class="contect-info-content-line">
+                    <img src="./images/icon-email.png" class="icon" alt="email-icon">
+                    <div class="contact-info-icon-text">
+                        <h6>Email</h6>
+                        <p>Spanocrypt@gmail.com</p>
+                    </div>
+                </div>
+            </div>    
+            <!--Contact information end-->
+        </div>    
+        </div>
+            <!--copyright-section-->    
+                <div class="footer">
+                    <div class="footer-text">
+                        <img src="./images/copyright.png" alt="copyright-img" class="images" height="14px"> Paco López Alarte 2025.
+                    </div>
+                </div>
+            <!--copyright-section-->
     </div>
     <!--contact end-->
-    </div>
+</div>
 <!--all the divisions-->
     <script src="js/jquery.min.js"></script>
     <script src="js/particles.js"></script>
@@ -687,4 +691,4 @@
     particlesJS("particles", {"particles":{"number":{"value":40,"density":{"enable":true,"value_area":800}},"color":{"value":"#ffffff"},"shape":{"type":"circle","stroke":{"width":0,"color":"#000000"},"polygon":{"nb_sides":5},"image":{"src":"img/github.svg","width":100,"height":100}},"opacity":{"value":0.5,"random":false,"anim":{"enable":false,"speed":1,"opacity_min":0.1,"sync":false}},"size":{"value":3,"random":true,"anim":{"enable":false,"speed":40,"size_min":0.1,"sync":false}},"line_linked":{"enable":true,"distance":150,"color":"#ffffff","opacity":0.4,"width":1},"move":{"enable":true,"speed":6,"direction":"none","random":false,"straight":false,"out_mode":"out","bounce":false,"attract":{"enable":false,"rotateX":600,"rotateY":1200}}},"interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":true,"mode":"repulse"},"onclick":{"enable":true,"mode":"push"},"resize":true},"modes":{"grab":{"distance":400,"line_linked":{"opacity":1}},"bubble":{"distance":400,"size":40,"duration":2,"opacity":8,"speed":3},"repulse":{"distance":200,"duration":0.4},"push":{"particles_nb":4},"remove":{"particles_nb":2}}},"retina_detect":true});
     </script>
     </body>
-    </html>
+</html>
