@@ -1039,11 +1039,17 @@ button:hover .index {
 }
 #contact {
   display: none;
-  height: auto;
+  min-height: 100vh;
   text-align: center;
   width: 100%;
   background: #101010;
   position: relative;
+}
+
+#contact.active,
+#contact[style*="block"] {
+  display: flex !important;
+  flex-direction: column;
 }
 .contact-header {
   height: auto;
@@ -1065,6 +1071,12 @@ button:hover .index {
   opacity: 0.9;
   font-family: raleway;
   font-size: 18px;
+}
+.contact-main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 .contact-content {
   width: 90%;
@@ -1228,6 +1240,7 @@ form button:hover {
   font-family: poppins;
   align-items: center;
   justify-content: center;
+  margin-top: auto;
 }
 .footer .footer-text {
   position: relative;
