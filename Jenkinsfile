@@ -36,7 +36,7 @@ pipeline {
                     withCredentials([usernamePassword(credentialsId: env.DOCKER_HUB_CRED_ID, usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
                         sh "echo ${DOCKER_PASS} | docker login -u ${DOCKER_USER} --password-stdin"
                         sh "docker push ${env.FULL_DOCKER_IMAGE}:${env.IMAGE_TAG}"
-                        sh "docker logout" // Buena práctica para limpiar
+                        sh "docker logout" // Buena practica para limpiar
                     }
                 }
             }
@@ -61,7 +61,7 @@ pipeline {
 
     post {
         always {
-            // Para limpiar, puedes añadir pasos aquí para eliminar imágenes locales, etc.
+            // Para limpiar, añadir pasos aquí para eliminar imágenes locales, etc.
             echo "Pipeline finished for ${env.FULL_DOCKER_IMAGE}:${env.IMAGE_TAG}"
         }
         failure {
