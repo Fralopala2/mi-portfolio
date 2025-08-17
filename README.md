@@ -134,6 +134,6 @@ Portfolio realizado y mantenido por **Paco López Alarte** © 2025
 
 ---
 
-<div align="center">
-  <img src="images/man3.png" alt="Logo Portfolio" width="120"/>
-</div>
+<p align="center">
+<img src="https://github.com/user-attachments/assets/a8851d3c-6fc1-4a68-a0e4-256b0bc7adc9" alt="logo">
+</p>
