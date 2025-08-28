@@ -30,6 +30,7 @@ input::-webkit-inner-spin-button {
 
 /* Firefox */
 input[type="number"] {
+  appearance: textfield;
   -moz-appearance: textfield;
 }
 html {
@@ -1500,7 +1501,7 @@ For devices with smaller width like mobile phone
     flex-direction: column-reverse;
   }
   .about-img img {
-    width: 280px;
+    width: 350px;
     height: 220px;
     padding: 5px;
     border-radius: 10%;
