@@ -1501,7 +1501,7 @@ For devices with smaller width like mobile phone
     flex-direction: column-reverse;
   }
   .about-img img {
-    width: 350px;
+    /* width: 350px; */
     height: 220px;
     padding: 5px;
     border-radius: 10%;
