@@ -2550,3 +2550,16 @@ for tabs and large phones
     transition: all 0.4s ease;
   }
 }
+/* Portfolio buttons flex alignment */
+.portfolio-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 20px;
+}
+.portfolio-btn {
+  flex: 0 1 auto;
+}
+.google-play {
+  margin-left: auto;
+}
