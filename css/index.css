@@ -290,6 +290,21 @@ body {
     z-index: 0;
   }
 }
+
+/* Footer link styles: make them white and remove underline */
+.footer .footer-text .footer-links a,
+.footer-links a {
+  color: whitesmoke;
+  text-decoration: none;
+  opacity: 0.95;
+  margin: 0 6px;
+  cursor: pointer;
+}
+.footer .footer-text .footer-links a:hover,
+.footer-links a:hover {
+  text-decoration: none;
+  opacity: 1;
+}
 .social-media-links {
   height: 100vh;
   position: absolute;
@@ -2563,3 +2578,77 @@ for tabs and large phones
 .google-play {
   margin-left: auto;
 }
+
+/* Ensure portfolio images keep their aspect ratio and are centered (avoid stretching) */
+.portfolio-image {
+  overflow: hidden;
+  position: relative;
+}
+.portfolio-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.portfolio-image img {
+  width: auto !important;
+  max-width: 100% !important;
+  height: auto !important;
+  max-height: 380px !important;
+  object-fit: contain !important;
+  display: block;
+  margin: 0 auto;
+}
+
+/* New: consistent portfolio layout and image box (override earlier rules) */
+.portfolio {
+  display: flex !important;
+  align-items: center !important;
+  gap: 40px !important;
+  margin-bottom: 36px !important;
+}
+.portfolio .portfolio-image {
+  width: 46% !important;
+  padding: 24px !important;
+  box-sizing: border-box !important;
+  background: rgba(255,255,255,0.02) !important;
+  border: 1px solid rgba(255,255,255,0.03) !important;
+  border-radius: 8px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+  height: 420px !important;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.25) !important;
+}
+.portfolio .portfolio-image img {
+  width: auto !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  display: block;
+  margin: 0 auto;
+}
+.portfolio .portfolio-text {
+  width: 54% !important;
+  background: transparent !important;
+}
+
+@media all and (max-width: 900px) {
+  .portfolio {
+    flex-direction: column !important;
+    gap: 20px !important;
+  }
+  .portfolio .portfolio-image,
+  .portfolio .portfolio-text {
+    width: 100% !important;
+  }
+  .portfolio .portfolio-image {
+    padding: 12px !important;
+    height: 300px !important;
+  }
+  .portfolio .portfolio-image img {
+    max-height: 100% !important;
+    height: 100% !important;
+  }
+}
+
+

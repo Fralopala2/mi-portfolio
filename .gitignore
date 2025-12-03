@@ -1,0 +1,18 @@
+# Ignore image backups and generated script artifacts
+images/backup_originals/
+scripts/
+requirements.txt
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Virtual environment
+.venv/
+venv/
+.env
+
+# Editor/project files
+.vscode/
+.DS_Store

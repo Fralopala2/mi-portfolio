@@ -1,21 +1,22 @@
 # 🌟 Mi Portfolio Personal
 
-¡Bienvenido/a! Soy **Paco**, un apasionado Full Stack Developer basado en Valencia, España. Aquí encontrarás una muestra de mis trabajos, proyectos y habilidades en desarrollo web y software. Este portfolio está creado para mostrar mi evolución y creatividad como desarrollador.
+¡Bienvenido/a! Soy **Paco López Alarte**, Full Stack Developer con base en Valencia, España. Este repositorio muestra una colección de mis trabajos, proyectos destacados y habilidades en desarrollo Web y software.
 
 ---
 
 ## 🚀 Sobre Mí
 
-- 👨‍💻 **Desarrollador Full Stack** con más de 27 años de experiencia en IT, desarrollo web y E-Commerce.
+- 👨‍💻 **Experiencia:** Más de 27 años en IT, desarrollo web y E-Commerce.
 - 📍 **Ubicación:** Valencia, España
-- 💡 Creativo, resolutivo y siempre en busca de nuevos retos.
+- 💡 Apasionado de la tecnología, creativo y resolutivo, siempre buscando nuevos retos.
+- 📝 Publico artículos y recursos en mi [blog personal](#blog--recursos) sobre desarrollo, buenas prácticas y proyectos.
 
 ---
 
-## 🌐 Ver Portfolio Online
+## 🌐 Portfolio Online
 
-Accede a la versión online aquí:  
-🔗 [fralopala2.github.io/mi-portfolio](https://fralopala2.github.io/mi-portfolio)
+Versión web online:  
+🔗 [https://fralopala2.github.io/mi-portfolio](https://www.pacoal.dev)
 
 ---
 
@@ -44,87 +45,53 @@ Accede a la versión online aquí:
 
 ## 🏆 Proyectos Destacados
 
-### 🎵 Music Recommender by Emojis (Spring Boot)
-> Backend RESTful con Spring Boot que recomienda géneros musicales según emojis. Incluye lógica de negocio avanzada y base de datos H2.
+- **🎵 [Music Recommender by Emojis (Spring Boot)](https://github.com/Fralopala2/recomendador-musica.git)**  
+  _Backend RESTful que recomienda géneros musicales según emojis. Incluye lógica avanzada y base de datos H2._
 
-🔗 [Repositorio](https://github.com/Fralopala2/recomendador-musica.git)
+- **🐾 [MaskotasApp (Java Desktop)](https://github.com/Fralopala2/MaskotasApp.git)**  
+  _App de escritorio para gestión de mascotas con interfaz intuitiva y SQLite._
 
----
+- **🕹️ Juegos Retro: [Tetris](https://github.com/Fralopala2/BO-TETRIS.git) & [Connect Four](https://github.com/Fralopala2/4enRaya.git)**  
+  _Desarrollados para prácticas de grado. Ejemplo de código limpio y modular._
 
-### 🐾 MaskotasApp (Java Desktop)
-> Aplicación de escritorio para gestión de mascotas, con interfaz intuitiva y base de datos SQLite.
+- **🚦 [Semáforo Eléctrico (Django)](https://github.com/Fralopala2/semaforo_electrico.git)**  
+  _Web app de precios eléctricos en tiempo real, con autenticación y visualización tipo semáforo._
 
-🔗 [Repositorio](https://github.com/Fralopala2/MaskotasApp.git)
+- **👜 [Bags Management (Angular + Spring Boot)](https://github.com/Fralopala2/gestion-bolsos.git)**  
+  _App full stack para la gestión de bolsos. Frontend Angular, backend Spring Boot._
 
----
+- **🎉 [RECO APP (Node.js + React Native)](https://github.com/Fralopala2/RECO-FullStack.git)**  
+  _Full stack para gestión de eventos. Backend Node.js/Express, frontend móvil en React Native, MongoDB Atlas._
 
-### 🕹️ Juegos Retro: Tetris & Connect Four
-> Dos juegos desarrollados para prácticas de grado. Código limpio y diseño modular.
+- **🛍️ [Magento - Hyva Integration](https://www.lladro.com/es_es/)**  
+  _Implementación Hyva para Magento en Lladro y desarrollo de landing pages._
 
-- [Tetris](https://github.com/Fralopala2/BO-TETRIS.git)
-- [Connect Four](https://github.com/Fralopala2/4enRaya.git)
+- **🦸 [Renamizer (API para PLEX)](https://github.com/Fralopala2/renamizer.git)**  
+  _Renombrador inteligente de series para PLEX via API._
 
----
-
-### 🚦 Semáforo Eléctrico (Django)
-> Web app para mostrar precios de electricidad en tiempo real en España, con autenticación y visualización tipo semáforo.
-
-🔗 [Repositorio](https://github.com/Fralopala2/semaforo_electrico.git)
-
----
-
-### 👜 Bags Management (Angular + Spring Boot)
-> Aplicación full-stack para gestión de bolsos, frontend en Angular y backend en Spring Boot con BDD H2.
-
-🔗 [Repositorio](https://github.com/Fralopala2/gestion-bolsos.git)
-
----
-
-### 🎉 RECO APP (Node.js + React Native)
-> Full-stack para gestión de eventos, backend en Node.js/Express, frontend móvil en React Native y base de datos MongoDB Atlas.
-
-🔗 [Repositorio](https://github.com/Fralopala2/RECO-FullStack.git)
-
----
-
-### 🛍️ Magento - Hyva Integration
-> Implementación de Hyva para Magento en Lladro, diseño de landing pages.
-
-🔗 [Sitio](https://www.lladro.com/es_es/)
-
----
-
-### 🦸 Renamizer (API para PLEX)
-> App para renombrar series de TV usando APIs para PLEX.
-
-🔗 [Repositorio](https://github.com/Fralopala2/renamizer.git)
-
----
-
-### ⚽ Task Management App (JavaFX + PostgreSQL)
-> Aplicación de administración total para fútbol (FFCV). Frontend en JavaFX y base de datos PostgreSQL.
-
-🔗 [Repositorio](https://github.com/Fralopala2/Proyecto-FFCV.git)
+- **⚽ [Task Management App (JavaFX + PostgreSQL)](https://github.com/Fralopala2/Proyecto-FFCV.git)**  
+  _Administración para fútbol (FFCV). Frontend JavaFX y base de datos PostgreSQL._
 
 ---
 
 ## 📄 Blog & Recursos
 
-- Compartiré artículos y recursos sobre desarrollo web, buenas prácticas y proyectos personales. ¡Sígueme para estar al día!
+Artículos, recursos y novedades sobre desarrollo web, buenas prácticas y proyectos personales.  
+¡Sígueme en [LinkedIn](https://www.linkedin.com/in/fmlalinked) y mantente al día!
 
 ---
 
 ## 📬 Contacto
 
-- 📧 **Email:** pacoaldev@gmail.com
+- 📧 **Email:** [pacoaldev@gmail.com](mailto:pacoaldev@gmail.com)
 - 📱 **Teléfono:** +34 655866532
-- 💼 **LinkedIn:** [Acceso a Linkedln](www.linkedin.com/in/fmlalinked)
+- 💼 **LinkedIn:** [fmlalinked](https://www.linkedin.com/in/fmlalinked)
 
 ---
 
-## 🖌️ Personaliza tu experiencia
+## 🖌️ Personaliza tu Experiencia
 
-Mi portfolio incluye selector de colores para que puedas explorar distintas paletas visuales. ¡Prueba la opción de cambio de color!
+Mi portfolio incluye un selector de colores para explorar distintas paletas visuales. ¡Prueba el cambio de color y encuentra tu estilo favorito!
 
 ---
 
@@ -135,5 +102,5 @@ Portfolio realizado y mantenido por **Paco López Alarte** © 2025
 ---
 
 <p align="center">
-<img src="https://github.com/user-attachments/assets/a8851d3c-6fc1-4a68-a0e4-256b0bc7adc9" alt="logo">
+  <img src="https://github.com/user-attachments/assets/a8851d3c-6fc1-4a68-a0e4-256b0bc7adc9" alt="logo" width="120" />
 </p>
