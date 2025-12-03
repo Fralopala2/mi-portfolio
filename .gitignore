@@ -2,6 +2,7 @@
 images/backup_originals/
 scripts/
 requirements.txt
+# Keep the image resize script and requirements tracked; they're small and useful for rebuilding assets
 
 # Python artifacts
 __pycache__/
@@ -16,3 +17,6 @@ venv/
 # Editor/project files
 .vscode/
 .DS_Store
+
+# Offline package (built artifact)
+offline-package/
