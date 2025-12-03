@@ -9,7 +9,6 @@
 - 👨‍💻 **Experiencia:** Más de 27 años en IT, desarrollo web y E-Commerce.
 - 📍 **Ubicación:** Valencia, España
 - 💡 Apasionado de la tecnología, creativo y resolutivo, siempre buscando nuevos retos.
-- 📝 Publico artículos y recursos en mi [blog personal](#blog--recursos) sobre desarrollo, buenas prácticas y proyectos.
 
 ---
 
@@ -71,13 +70,6 @@ Versión web online:
 
 - **⚽ [Task Management App (JavaFX + PostgreSQL)](https://github.com/Fralopala2/Proyecto-FFCV.git)**  
   _Administración para fútbol (FFCV). Frontend JavaFX y base de datos PostgreSQL._
-
----
-
-## 📄 Blog & Recursos
-
-Artículos, recursos y novedades sobre desarrollo web, buenas prácticas y proyectos personales.  
-¡Sígueme en [LinkedIn](https://www.linkedin.com/in/fmlalinked) y mantente al día!
 
 ---
 
