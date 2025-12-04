@@ -1,11 +1,4 @@
-/*-----------------
-* [Master Stylesheet]
-*
-* Theme    : WillyWonka
-* Version  : 1.0
-* Author   : sujal
-* 
-------------------*/
+
 ::-webkit-scrollbar{
     width: 4px;
     color:#c70039;
@@ -62,7 +55,7 @@
 .portfolio-text button::before{
     background: #c70039;
 }
-.portfolio-image img::before{
+.portfolio-image::before{
     background: #c70039;
 }
 .blog-date{

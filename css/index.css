@@ -251,6 +251,42 @@ body {
   padding-right: 60px;
   width: auto;
 }
+
+.header-tagline {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  color: whitesmoke;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.3);
+  display: inline-block;
+  opacity: 0;
+  animation: fadeInUp 1s ease-out 0.5s forwards;
+  letter-spacing: 1px;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .header-tagline {
+    font-size: 14px;
+    padding: 8px 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+}
 .header-content .firstline {
   z-index: 2;
   font-weight: 700;
@@ -804,62 +840,74 @@ body {
   font-weight: 400;
 }
 .portfolio {
+  width: 90%;
   height: auto;
-  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding: 1.5%;
-  padding-right: 2%;
-  padding-top: 50px;
-  padding-bottom: 40px;
+  background-color: #191919;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+  margin: 30px 0;
+  padding: 0;
+}
+.portfolio:nth-child(even) {
+  flex-direction: row-reverse;
+}
+.portfolio:hover {
+  transform: translateY(-10px);
 }
 
 .portfolio-text {
-  width: 40%;
-  padding-left: 1%;
-  margin: 1%;
-  margin-left: -40px;
-  margin-top: 160px;
+  width: 50%;
+  padding: 40px;
+  margin: 0;
   z-index: 3;
   opacity: 1;
-  background: #080808;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
 }
 
 .portfolio-text h2 {
-  font-size: 35px;
+  font-size: 24px;
   font-family: poppins;
-  font-weight: 200;
-  padding: 20px;
+  font-weight: 600;
+  padding: 0 0 15px 0;
   color: #c70039;
-  transition: all 0.4s ease;
+  line-height: 1.3;
 }
 .portfolio-text p {
-  font-size: 16px;
+  font-size: 15px;
   opacity: 0.8;
   font-family: poppins;
-  font-weight: 200;
-  padding: 20px;
+  font-weight: 300;
+  padding: 0 0 20px 0;
+  line-height: 1.6;
+  flex-grow: 1;
 }
 .portfolio-text button {
-  font-size: 16px;
-  opacity: 0.8;
+  font-size: 14px;
+  opacity: 0.9;
   font-family: poppins;
-  font-weight: 200;
-  padding: 10px 20px;
+  font-weight: 500;
+  padding: 10px 25px;
   background: transparent;
   color: #c70039;
   transition: all 0.4s ease;
   outline: none;
-  margin: 20px;
-  border: 1.5px solid #c70039;
+  margin: 0;
+  border: 2px solid #c70039;
   cursor: pointer;
   overflow: hidden;
   position: relative;
-  transition: all 0.4s ease;
+  border-radius: 50px;
+  align-self: flex-start;
 }
 .portfolio-text button::before {
   content: "";
@@ -889,32 +937,43 @@ button:hover .index {
   text-align: center;
 }
 .portfolio-image img {
-  height: 400px;
+  height: 100%;
   width: 100%;
-  position: relative;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.portfolio:hover .portfolio-image img {
+  transform: scale(1.1);
 }
 .portfolio-image {
   height: 400px;
-  width: 40%;
+  width: 50%;
+  overflow: hidden;
+  position: relative;
 }
-.portfolio-image img::before {
+.portfolio-image::before {
   content: "";
   height: 100%;
   width: 100%;
   background: #c70039;
-  opacity: 0.1;
+  opacity: 0;
   top: 0;
   left: 0;
   transition: all 0.4s ease;
   position: absolute;
   z-index: 2;
 }
+.portfolio:hover .portfolio-image::before {
+  opacity: 0.2;
+}
 #portfolio-content {
   width: 100%;
   display: flex;
-  height: auto;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
+  gap: 0;
+  padding: 20px;
+  height: auto;
   overflow: hidden;
 }
 #portfolio {
@@ -1265,6 +1324,15 @@ form button:hover {
   font-weight: 400;
   opacity: 1;
 }
+.home-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: transparent !important;
+  z-index: 10;
+  margin-top: 0;
+}
 .color-changer {
   height: auto;
   width: auto;
@@ -1406,7 +1474,7 @@ For devices with smaller width like mobile phone
   .social-media-links {
     width: 100%;
     left: 0;
-    bottom: 0;
+    bottom: 50px;
     position: absolute;
     padding: 10px;
     height: auto;
@@ -1414,6 +1482,34 @@ For devices with smaller width like mobile phone
     flex-direction: row;
     align-items: center;
     justify-content: center;
+  }
+  .home-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: transparent !important;
+    padding: 10px;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .home-footer .footer-text {
+    font-size: 12px;
+  }
+  .header-tagline {
+    font-size: 12px;
+    padding: 8px 10px;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    white-space: nowrap;
+    max-width: 90%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .mobile-hide {
+    display: none;
   }
   .header-content-box {
     padding-left: 0px;
@@ -1564,29 +1660,24 @@ For devices with smaller width like mobile phone
     margin-bottom: 15px;
   }
   .portfolio {
-    height: auto;
-    width: 100%;
-    display: flex;
+    width: 90%;
+    margin: 20px 0;
+    padding: 0;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 1.5%;
-    padding-right: 2%;
-    padding-top: 50px;
-    padding-bottom: 40px;
+  }
+  .portfolio:nth-child(even) {
+    flex-direction: column;
   }
   .portfolio-text {
-    width: 90%;
-    padding-left: 0%;
-    margin: 0%;
-    margin-left: 0px;
-    margin-top: 0px;
-    z-index: 1;
-    background: #070707;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    width: 100%;
+    padding: 20px;
+    background: transparent;
+    margin: 0;
   }
   .portfolio-image {
+    height: 200px;
+    width: 100%;
     position: relative;
   }
   .portfolio-text h2 {
@@ -1609,12 +1700,8 @@ For devices with smaller width like mobile phone
     box-shadow: 0px 0px 0px 0px #c70039;
   }
   .portfolio-image img {
-    height: 300px;
+    height: 100%;
     width: 100%;
-  }
-  .portfolio-image {
-    height: 300px;
-    width: 90%;
   }
   #navigation-bar img {
     height: 80px;
