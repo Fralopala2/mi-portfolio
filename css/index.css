@@ -1926,6 +1926,13 @@ For devices with smaller width like mobile phone
   .hire-me-section {
     display: none;
   }
+  .footer {
+    padding: 10px;
+  }
+  .footer .footer-text {
+    font-size: 12px;
+  }
+
 }
 
 /*
