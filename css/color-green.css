@@ -69,3 +69,11 @@ form button{
         box-shadow:0px 0px 0px 0px #c70039 ;
     }
 }
+
+.skill-category::before {
+    background: #04A777;
+}
+
+.skill-category:hover {
+    border-top-color: #04A777;
+}
