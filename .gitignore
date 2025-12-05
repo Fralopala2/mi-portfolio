@@ -1,6 +1,5 @@
 # Ignore image backups and generated script artifacts
 images/backup_originals/
-images/skills/
 scripts/
 requirements.txt
 # Keep the image resize script and requirements tracked; they're small and useful for rebuilding assets
