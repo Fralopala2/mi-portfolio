@@ -217,8 +217,11 @@ body {
   transform: rotate(-45deg);
 }
 .header-image img {
-  height: 100vh;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
   float: right;
+  display: block;
 }
 .header-image {
   float: right;
@@ -227,6 +230,7 @@ body {
   background-position: center;
   width: 40%;
   height: 100vh;
+  overflow: hidden;
 }
 .header-content {
   height: 100vh;
@@ -573,6 +577,10 @@ body {
 }
 .cv {
   padding-top: 40px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .cv a button {
   background: transparent;
@@ -943,7 +951,7 @@ button:hover .index {
   transition: transform 0.5s ease;
 }
 .portfolio:hover .portfolio-image img {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 .portfolio-image {
   height: 400px;
@@ -2717,7 +2725,12 @@ for tabs and large phones
 .portfolio .portfolio-image img {
   width: auto !important;
   height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
   object-fit: contain !important;
+  object-position: center center !important;
+  transform-origin: center center !important;
+  transition: transform 0.45s ease !important;
   display: block;
   margin: 0 auto;
 }
@@ -2742,6 +2755,8 @@ for tabs and large phones
   .portfolio .portfolio-image img {
     max-height: 100% !important;
     height: 100% !important;
+    max-width: 100% !important;
+    width: auto !important;
   }
 }
 
