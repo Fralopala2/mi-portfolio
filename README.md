@@ -1,12 +1,12 @@
 # 🌟 Mi Portfolio Personal
 
-¡Bienvenido/a! Soy **Paco López Alarte**, Full Stack Developer con base en Valencia, España. Este repositorio muestra una colección de mis trabajos, proyectos destacados y habilidades en desarrollo Web y software.
+¡Bienvenido/a! Soy **Paco López Alarte**, Full Stack Developer con base en Valencia, España. Este repositorio muestra una colección de mis trabajos, proyectos destacados y habilidades en desarrollo de software.
 
 ---
 
 ## 🚀 Sobre Mí
 
-- 👨‍💻 **Experiencia:** Más de 27 años en IT, desarrollo web y E-Commerce.
+- 👨‍💻 **Experiencia:** Más de 14 años en IT, desarrollo y E-Commerce.
 - 📍 **Ubicación:** Valencia, España
 - 💡 Apasionado de la tecnología, creativo y resolutivo, siempre buscando nuevos retos.
 
