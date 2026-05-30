@@ -242,3 +242,14 @@ $(document).ready(function() {
             });
     });
 });
+
+// Toggle mute/unmute for About video
+$(function() {
+    $('#mute-toggle').on('click', function() {
+        var video = $('#about-video')[0];
+        if (video) {
+            video.muted = !video.muted;
+            $(this).toggleClass('unmuted', !video.muted);
+        }
+    });
+});
