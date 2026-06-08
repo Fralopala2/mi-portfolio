@@ -526,8 +526,12 @@ body {
   font-size: 16px;
   font-family: poppins;
   width: 50%;
-  padding: 30px;
+  padding: 40px;
   font-weight: 400;
+  background-color: #191919;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  margin-right: 30px;
 }
 .about-first-paragraph .color {
   font-size: 32px;
@@ -542,6 +546,13 @@ body {
   opacity: 0.8;
   font-size: 15px;
   font-weight: 200;
+}
+.cv {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+  justify-content: flex-start;
+  flex-wrap: wrap;
 }
 .about-main {
   display: flex;
@@ -1683,8 +1694,10 @@ For devices with smaller width like mobile phone
     font-size: 20px;
     font-family: poppins;
     width: 95%;
-    padding: 10px;
+    padding: 30px;
     font-weight: 400;
+    margin-right: 0;
+    margin-bottom: 30px;
   }
   .about-first-paragraph .color {
     font-size: 30px;
@@ -2154,8 +2167,10 @@ for tabs and large phones
     font-size: 40px;
     font-family: poppins;
     width: 95%;
-    padding: 25px;
+    padding: 40px;
     font-weight: 400;
+    margin-right: 0;
+    margin-bottom: 30px;
   }
   .about-first-paragraph .color {
     font-size: 35px;

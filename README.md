@@ -6,9 +6,21 @@
 
 ## 🚀 Sobre Mí
 
-- 👨‍💻 **Experiencia:** Más de 14 años en IT, desarrollo y E-Commerce.
+- 👨‍💻 **Especialidad:** Diseño y desarrollo de sistemas backend robustos y de alto rendimiento.
+- ⚙️ **Enfoque:** Procesamiento de datos en tiempo real, arquitecturas IoT y sistemas distribuidos.
+- 💡 **Valor añadido:** Combinando ingeniería backend con infraestructura moderna e integración de Inteligencia Artificial (IA) para entregar soluciones escalables de principio a fin.
 - 📍 **Ubicación:** Valencia, España
-- 💡 Apasionado de la tecnología, creativo y resolutivo, siempre buscando nuevos retos.
+
+---
+
+## 🔨 Qué Construyo y Diseño
+
+- 🚗 **Pipelines de datos en tiempo real** — Sistemas de ingesta de alto rendimiento y procesamiento de baja latencia.
+- ⚡ **Arquitecturas orientadas a eventos** — Sistemas distribuidos con comunicación fluida vía MQTT y WebSockets.
+- 🧠 **Soluciones potenciadas por IA** — Integración de modelos de lenguaje grandes (LLMs) en flujos de trabajo escalables.
+- 🦉 **Agentes IA y Herramientas Dev** — Extensión de capacidades IDE mediante MCP y flujos de trabajo con agentes personalizados.
+- 📑 **APIs Empresariales y Backends** — Servicios RESTful limpios, seguros y mantenibles.
+- 🐳 **Infraestructura y Contenedores** — Empaquetado automatizado, orquestación y despliegues sin interrupciones.
 
 ---
 
@@ -42,32 +54,41 @@ Versión web online:
 
 ## 🏆 Proyectos Destacados
 
-- **🎵 [Music Recommender by Emojis (Spring Boot)](https://github.com/Fralopala2/recomendador-musica.git)**  
-  _Backend RESTful que recomienda géneros musicales según emojis. Incluye lógica avanzada y base de datos H2._
+- **🦉 [Opencode-mcp](https://github.com/Fralopala2/opencode-mcp)**  
+  _Extensión VSIX para VSCode y Antigravity que permite usar tu servidor local Opencode con agentes, skills y herramientas MCP con una interfaz amigable desde el IDE._
 
-- **🐾 [MaskotasApp (Java Desktop)](https://github.com/Fralopala2/MaskotasApp.git)**  
-  _App de escritorio para gestión de mascotas con interfaz intuitiva y SQLite._
+- **🧠 [Epsylon Control Center](https://github.com/Fralopala2/Epsylon-show)**  
+  _Asistente de escritorio potenciado por IA para revolucionar la búsqueda de empleo. Descubrimiento automatizado de ofertas y asistencia inteligente en tiempo real durante entrevistas técnicas._
 
-- **🕹️ Juegos Retro: [Tetris](https://github.com/Fralopala2/BO-TETRIS.git) & [Connect Four](https://github.com/Fralopala2/4enRaya.git)**  
-  _Desarrollados para prácticas de grado. Ejemplo de código limpio y modular._
+- **🪼 [Medusse IoT Platform](https://github.com/Fralopala2/medusse-show)**  
+  _Plataforma IoT integral para la gestión y monitorización de dispositivos conectados en entornos industriales._
+
+- **🏭 [Project Management System (UP4)](https://github.com/Fralopala2/Gestion-de-Proyectos-UP4.git)**  
+  _Sistema de gestión de proyectos para innovación industrial desarrollado con Spring Boot._
+
+- **📊 [ApiNot](https://github.com/Fralopala2/APIpnot.git)**  
+  _Plataforma de datos para recopilar, procesar y visualizar precios inmobiliarios en provincias españolas en tiempo real._
+
+- **🚗 [Citabot](https://github.com/Fralopala2/Citabot.git)**  
+  _App en Flutter para Android que automatiza la búsqueda de citas para la ITV conectada a un backend en FastAPI (Python) para scraping y notificaciones._
+
+- **🔥 [SOS REPORT](https://github.com/Fralopala2/fire_notification_app.git)**  
+  _Aplicación para reportar incendios forestales en tiempo real y localizar servicios de emergencia cercanos mediante GPS._
+
+- **🐾 [Chatbot para Clínica Veterinaria](https://github.com/Fralopala2/ChatbotMaskotas.git)**  
+  _Asistente virtual en Python que utiliza la API Gemini de Google y Firestore para automatizar la atención al cliente en una clínica veterinaria._
+
+- **⚽ [Task Management App (FFCV)](https://github.com/Fralopala2/Proyecto-FFCV.git)**  
+  _App full stack con Java, JavaFX y PostgreSQL para la administración de servicios de fútbol._
+
+- **🐶 [Pet clinic Management App (MaskotasApp)](https://github.com/Fralopala2/MaskotasApp.git)**  
+  _Aplicación de escritorio en Java con base de datos SQLite para la gestión integral de mascotas y su historial clínico._
 
 - **🚦 [Semáforo Eléctrico (Django)](https://github.com/Fralopala2/semaforo_electrico.git)**  
-  _Web app de precios eléctricos en tiempo real, con autenticación y visualización tipo semáforo._
-
-- **👜 [Bags Management (Angular + Spring Boot)](https://github.com/Fralopala2/gestion-bolsos.git)**  
-  _App full stack para la gestión de bolsos. Frontend Angular, backend Spring Boot._
-
-- **🎉 [RECO APP (Node.js + React Native)](https://github.com/Fralopala2/RECO-FullStack.git)**  
-  _Full stack para gestión de eventos. Backend Node.js/Express, frontend móvil en React Native, MongoDB Atlas._
+  _Web app en Django que muestra precios eléctricos en tiempo real en España con una interfaz de semáforo para la toma de decisiones._
 
 - **🛍️ [Magento - Hyva Integration](https://www.lladro.com/es_es/)**  
-  _Implementación Hyva para Magento en Lladro y desarrollo de landing pages._
-
-- **🦸 [Renamizer (API para PLEX)](https://github.com/Fralopala2/renamizer.git)**  
-  _Renombrador inteligente de series para PLEX via API._
-
-- **⚽ [Task Management App (JavaFX + PostgreSQL)](https://github.com/Fralopala2/Proyecto-FFCV.git)**  
-  _Administración para fútbol (FFCV). Frontend JavaFX y base de datos PostgreSQL._
+  _Implementación del frontend Hyva para Magento 2 en Lladró y desarrollo de diversas landing pages._
 
 ---
 
