@@ -39,6 +39,7 @@
         </div>
 
         <div class="preloader-content">
+            <div class="preloader-card">
             <div class="preloader-brand">
                 <div class="preloader-logo-wrap">
                     <div class="preloader-logo-ring preloader-logo-ring--outer"></div>
@@ -73,11 +74,12 @@
                 </div>
                 <div class="progressMeta" id="progressMeta">Initializing</div>
             </div>
-        </div>
 
-        <div class="preloader-footer">
-            <span class="preloaderLabel">Loading experience</span>
-            <span class="preloader-year">2026</span>
+            <div class="preloader-footer">
+                <span class="preloaderLabel">Loading experience</span>
+                <span class="preloader-year">2026</span>
+            </div>
+            </div>
         </div>
     </div>
 
@@ -130,16 +132,17 @@
         };
 
         const StartPreloader = () => {
-            gsap.set('.preloader-content', { opacity: 0, y: 36, scale: 0.96 });
-            gsap.set('.preloader-footer', { opacity: 0, y: 16 });
-            gsap.set('.preloader-logo-wrap', { scale: 0.6, rotation: -12 });
+            document.documentElement.classList.add("preloader-active");
+            document.body.classList.add("preloader-active");
+
+            gsap.set('.preloader-card', { opacity: 0, y: 36, scale: 0.96, transformOrigin: 'center center' });
+            gsap.set('.preloader-logo-wrap', { scale: 0.6, rotation: -12, transformOrigin: 'center center' });
             gsap.set('.preloader-percent-wrap', { opacity: 0, y: 20 });
 
             gsap.timeline()
-                .to('.preloader-content', { opacity: 1, y: 0, scale: 1, duration: 0.9, ease: 'power3.out' })
-                .to('.preloader-logo-wrap', { scale: 1, rotation: 0, duration: 0.8, ease: 'back.out(1.6)' }, '-=0.65')
-                .to('.preloader-percent-wrap', { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }, '-=0.45')
-                .to('.preloader-footer', { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }, '-=0.35');
+                .to('.preloader-card', { opacity: 1, y: 0, scale: 1, duration: 0.9, ease: 'power3.out' })
+                .to('.preloader-logo-wrap', { scale: 1, rotation: 0, duration: 0.8, ease: 'back.out(1.4)' }, '-=0.65')
+                .to('.preloader-percent-wrap', { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }, '-=0.45');
 
             gsap.to('.preloader-logo-ring--inner', { rotation: 360, duration: 2.2, ease: 'none', repeat: -1 });
             gsap.to('.preloader-logo-ring--outer', { rotation: -360, duration: 3.6, ease: 'none', repeat: -1 });
@@ -156,7 +159,7 @@
                         const Timeline = gsap.timeline();
 
                         Timeline
-                            .to(".preloader-content", {
+                            .to(".preloader-card", {
                                 y: -24,
                                 scale: 0.97,
                                 opacity: 0,
@@ -164,19 +167,14 @@
                                 duration: 0.55,
                                 ease: "power2.in"
                             })
-                            .to(".preloader-footer", {
-                                opacity: 0,
-                                y: -10,
-                                duration: 0.35,
-                                ease: "power2.in"
-                            }, "-=0.45")
                             .to(Preloader, {
                                 opacity: 0,
                                 duration: 0.45,
                                 ease: "power2.inOut",
                                 onComplete: () => {
                                     Preloader.style.display = "none";
-                                    document.body.style.overflow = "auto";
+                                    document.documentElement.classList.remove("preloader-active");
+                                    document.body.classList.remove("preloader-active");
                                 }
                             }, "-=0.08")
                             .to(PageContent, {

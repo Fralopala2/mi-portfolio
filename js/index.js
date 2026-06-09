@@ -51,7 +51,7 @@ const FinishPreloader = () => {
 
     const Timeline = gsap.timeline();
     Timeline
-        .to(".preloader-content", {
+        .to(".preloader-card", {
             y: -24,
             scale: 0.97,
             opacity: 0,
@@ -59,18 +59,14 @@ const FinishPreloader = () => {
             duration: 0.55,
             ease: "power2.in"
         })
-        .to(".preloader-footer", {
-            opacity: 0,
-            y: -10,
-            duration: 0.35,
-            ease: "power2.in"
-        }, "-=0.45")
         .to(Preloader, {
             opacity: 0,
             duration: 0.45,
             ease: "power2.inOut",
             onComplete: () => {
                 Preloader.style.display = "none";
+                document.documentElement.classList.remove("preloader-active");
+                document.body.classList.remove("preloader-active");
 
                 const introTl = gsap.timeline();
 
@@ -115,6 +111,9 @@ const StartPreloader = () => {
     if (!Preloader || preloaderStarted) return;
     preloaderStarted = true;
 
+    document.documentElement.classList.add("preloader-active");
+    document.body.classList.add("preloader-active");
+
     // Splitting text into letters for .split-text elements
     document.querySelectorAll('.split-text').forEach(el => {
         const text = el.innerText;
@@ -137,16 +136,14 @@ const StartPreloader = () => {
     gsap.set('.header-content-box > div:not(.firstline)', {opacity:0, y:50, filter:"blur(15px)"});
     gsap.set('.social-media', {opacity:0, scale:0, filter:"blur(5px)"});
 
-    gsap.set('.preloader-content', {opacity: 0, y: 36, scale: 0.96});
-    gsap.set('.preloader-footer', {opacity: 0, y: 16});
-    gsap.set('.preloader-logo-wrap', {scale: 0.6, rotation: -12});
-    gsap.set('.preloader-percent-wrap', {opacity: 0, y: 20});
+    gsap.set('.preloader-card', { opacity: 0, y: 36, scale: 0.96, transformOrigin: 'center center' });
+    gsap.set('.preloader-logo-wrap', { scale: 0.6, rotation: -12, transformOrigin: 'center center' });
+    gsap.set('.preloader-percent-wrap', { opacity: 0, y: 20 });
 
     gsap.timeline()
-        .to('.preloader-content', { opacity: 1, y: 0, scale: 1, duration: 0.9, ease: 'power3.out' })
-        .to('.preloader-logo-wrap', { scale: 1, rotation: 0, duration: 0.8, ease: 'back.out(1.6)' }, '-=0.65')
-        .to('.preloader-percent-wrap', { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }, '-=0.45')
-        .to('.preloader-footer', { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }, '-=0.35');
+        .to('.preloader-card', { opacity: 1, y: 0, scale: 1, duration: 0.9, ease: 'power3.out' })
+        .to('.preloader-logo-wrap', { scale: 1, rotation: 0, duration: 0.8, ease: 'back.out(1.4)' }, '-=0.65')
+        .to('.preloader-percent-wrap', { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }, '-=0.45');
 
     gsap.to('.preloader-logo-ring--inner', {
         rotation: 360,

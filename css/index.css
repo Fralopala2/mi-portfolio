@@ -66,6 +66,13 @@ body {
   background: #171717;
 }
 
+html.preloader-active,
+body.preloader-active {
+  overflow: hidden;
+  height: 100%;
+  touch-action: none;
+}
+
 #header {
   background: #171717;
   height: 100vh;
@@ -1656,13 +1663,16 @@ For devices with smaller width like mobile phone
 
   .header-tagline {
     font-size: 12px;
-    padding: 8px 10px;
+    padding: 8px 6px;
     margin-top: 25px;
     margin-bottom: 15px;
-    white-space: nowrap;
-    max-width: 90%;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    width: 100%;
+    max-width: 100%;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+    word-break: break-word;
+    box-sizing: border-box;
   }
 
   .mobile-hide {
@@ -1670,9 +1680,39 @@ For devices with smaller width like mobile phone
   }
 
   .header-content-box {
-    padding-left: 0px;
+    width: 100%;
+    max-width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+    box-sizing: border-box;
     z-index: 2;
     text-align: center;
+  }
+
+  .header-content .firstline {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: baseline;
+    gap: 0 0.2em;
+    font-size: clamp(1.85rem, 9.5vw, 3.2rem);
+    line-height: 1.15;
+    word-break: normal;
+  }
+
+  .header-content .firstline .split-text {
+    white-space: nowrap;
+    display: inline-block;
+  }
+
+  .header-content .secondline {
+    font-size: clamp(0.95rem, 4.2vw, 1.35rem);
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    word-break: normal;
+    overflow-wrap: break-word;
+    box-sizing: border-box;
   }
 
   #contact {
@@ -1718,14 +1758,6 @@ For devices with smaller width like mobile phone
     100% {
       transform: translateX(100%);
     }
-  }
-
-  .header-content-box {
-    z-index: 2;
-    text-align: center;
-    height: auto;
-    padding-right: 0px;
-    width: auto;
   }
 
   #about-content {
@@ -2131,8 +2163,10 @@ For devices with smaller width like mobile phone
   }
 
   .header-content-box {
-    padding-left: 20px !important;
-    padding-right: 20px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
     box-sizing: border-box;
   }
 
@@ -2998,22 +3032,27 @@ for tabs and large phones
   position: fixed;
   inset: 0;
   z-index: 9999;
-  display: grid;
-  grid-template-rows: 1fr auto;
-  align-items: center;
-  min-height: 100dvh;
-  min-height: 100svh;
+  display: flex;
+  align-items: safe center;
+  justify-content: center;
+  box-sizing: border-box;
+  height: 100dvh;
+  height: 100svh;
+  max-height: 100dvh;
+  max-height: 100svh;
   padding:
-    max(clamp(12px, 3vw, 32px), env(safe-area-inset-top))
-    max(clamp(16px, 4vw, 48px), env(safe-area-inset-right))
-    0
-    max(clamp(16px, 4vw, 48px), env(safe-area-inset-left));
+    max(10px, env(safe-area-inset-top))
+    max(14px, env(safe-area-inset-right))
+    max(10px, env(safe-area-inset-bottom))
+    max(14px, env(safe-area-inset-left));
   background:
     radial-gradient(ellipse 80% 50% at 50% -10%, var(--preloader-glow), transparent 55%),
     radial-gradient(circle at 15% 85%, rgba(255, 255, 255, 0.04), transparent 35%),
     radial-gradient(circle at 85% 20%, rgba(255, 255, 255, 0.03), transparent 30%),
     linear-gradient(165deg, var(--colorBg) 0%, #0d0d0d 45%, var(--colorBgSoft) 100%);
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .preloader-bg {
@@ -3126,16 +3165,14 @@ for tabs and large phones
 .preloader-content {
   position: relative;
   z-index: 2;
-  grid-row: 1;
-  justify-self: center;
-  align-self: center;
   width: min(520px, 100%);
-  max-height: calc(100dvh - 88px - env(safe-area-inset-top) - env(safe-area-inset-bottom));
-  max-height: calc(100svh - 88px - env(safe-area-inset-top) - env(safe-area-inset-bottom));
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
-  padding: clamp(28px, 5vw, 40px);
+  flex-shrink: 0;
+  margin: auto;
+  overflow: visible;
+}
+
+.preloader-card {
+  padding: clamp(36px, 6vw, 40px) clamp(28px, 5vw, 40px) clamp(28px, 5vw, 40px);
   border: 1px solid var(--colorBorder);
   border-radius: 24px;
   background: linear-gradient(145deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.02) 100%);
@@ -3144,10 +3181,8 @@ for tabs and large phones
     var(--shadowMain),
     0 0 0 1px rgba(255, 255, 255, 0.04) inset,
     0 0 80px var(--preloader-glow);
-}
-
-.preloader-content::-webkit-scrollbar {
-  display: none;
+  transform-origin: center center;
+  will-change: transform, opacity;
 }
 
 .preloader-brand {
@@ -3156,6 +3191,7 @@ for tabs and large phones
   align-items: center;
   text-align: center;
   margin-bottom: 32px;
+  overflow: visible;
 }
 
 .preloader-logo-wrap {
@@ -3164,7 +3200,9 @@ for tabs and large phones
   height: 116px;
   display: grid;
   place-items: center;
-  margin-bottom: 20px;
+  margin: 8px 0 20px;
+  overflow: visible;
+  transform-origin: center center;
 }
 
 .preloader-logo-ring {
@@ -3409,25 +3447,20 @@ for tabs and large phones
   letter-spacing: 0.12em;
   text-transform: uppercase;
   line-height: 1.45;
-  min-height: 2.4em;
+  min-height: 1.4em;
   word-break: break-word;
 }
 
 .preloader-footer {
-  position: relative;
-  grid-row: 2;
-  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: 12px;
   width: 100%;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   flex-shrink: 0;
-  padding:
-    10px
-    max(clamp(20px, 5vw, 48px), env(safe-area-inset-right))
-    max(16px, calc(12px + env(safe-area-inset-bottom)))
-    max(clamp(20px, 5vw, 48px), env(safe-area-inset-left));
 }
 
 .preloaderLabel {
@@ -3451,80 +3484,107 @@ for tabs and large phones
 }
 
 @media (max-width: 640px) {
-  .preloader-content {
-    padding: 22px 18px;
-    border-radius: 20px;
+  .preloader {
+    align-items: safe center;
+    padding:
+      max(12px, env(safe-area-inset-top))
+      max(12px, env(safe-area-inset-right))
+      max(12px, env(safe-area-inset-bottom))
+      max(12px, env(safe-area-inset-left));
+  }
+
+  .preloader-card {
+    padding: 28px 16px 16px;
+    border-radius: 18px;
   }
 
   .preloader-brand {
-    margin-bottom: 22px;
+    margin-bottom: 12px;
   }
 
   .preloader-logo-wrap {
-    width: 96px;
-    height: 96px;
-    margin-bottom: 14px;
+    width: 80px;
+    height: 80px;
+    margin: 6px 0 10px;
+  }
+
+  .preloader-logo {
+    width: 52px;
+    height: 52px;
   }
 
   .preloader-logo-orbit {
-    inset: -10px;
-  }
-
-  .preloader-logo-ring--outer {
     inset: -8px;
   }
 
+  .preloader-logo-ring--outer {
+    inset: -6px;
+  }
+
+  .preloader-name {
+    font-size: 1.3rem;
+  }
+
+  .preloader-percent {
+    font-size: clamp(2rem, 10vw, 2.8rem);
+  }
+
   .preloader-percent-wrap {
-    margin-bottom: 14px;
+    margin-bottom: 10px;
   }
 
   .preloader-percent-symbol {
-    font-size: 1.15rem;
-    margin-top: 0.45rem;
+    font-size: 1rem;
+    margin-top: 0.35rem;
   }
 
   .preloader-steps {
-    gap: 6px;
-    margin-top: 18px;
+    gap: 5px;
+    margin-top: 12px;
     flex-wrap: nowrap;
   }
 
   .preloader-step {
-    width: 28px;
-    height: 28px;
+    width: 26px;
+    height: 26px;
     flex-shrink: 0;
-    font-size: 0.58rem;
-    border-radius: 8px;
+    font-size: 0.54rem;
+    border-radius: 7px;
   }
 
   .preloader-tagline {
-    font-size: 0.64rem;
-    letter-spacing: 0.12em;
-    line-height: 1.5;
-    max-width: 18rem;
+    font-size: 0.58rem;
+    letter-spacing: 0.08em;
+    line-height: 1.4;
+    max-width: 100%;
+    margin-top: 6px;
   }
 
   .progressMeta {
-    font-size: 0.64rem;
-    letter-spacing: 0.08em;
-    min-height: 2.2em;
+    font-size: 0.6rem;
+    letter-spacing: 0.06em;
+    margin-top: 10px;
+    min-height: auto;
   }
 
   .preloader-footer {
-    padding-top: 8px;
-    padding-bottom: max(14px, calc(10px + env(safe-area-inset-bottom)));
+    margin-top: 12px;
+    padding-top: 10px;
   }
 
   .preloaderLabel {
+    font-size: 0.58rem;
+    letter-spacing: 0.08em;
+    line-height: 1.4;
+  }
+
+  .preloader-year {
     font-size: 0.62rem;
-    letter-spacing: 0.1em;
-    line-height: 1.5;
-    max-width: 72%;
   }
 }
 
 @media (max-width: 380px) {
-  .preloader-content {
+  .preloader-card {
     padding: 18px 14px;
   }
 
@@ -3583,14 +3643,41 @@ for tabs and large phones
 }
 
 @media (max-width: 640px) and (max-height: 700px) {
+  .preloader {
+    justify-content: flex-start;
+  }
+
   .preloader-content {
-    padding: 16px 14px;
-    max-height: calc(100svh - 72px - env(safe-area-inset-top) - env(safe-area-inset-bottom));
+    margin-top: max(8px, env(safe-area-inset-top));
+    margin-bottom: 12px;
+  }
+
+  .preloader-card {
+    padding: 22px 14px 12px;
+  }
+
+  .preloader-brand {
+    margin-bottom: 8px;
+  }
+
+  .preloader-logo-wrap {
+    width: 72px;
+    height: 72px;
+    margin: 4px 0 8px;
+  }
+
+  .preloader-logo {
+    width: 48px;
+    height: 48px;
+  }
+
+  .preloader-percent {
+    font-size: clamp(1.75rem, 9vw, 2.4rem);
   }
 
   .preloader-footer {
-    gap: 10px;
-    padding-top: 6px;
+    margin-top: 8px;
+    padding-top: 8px;
   }
 }
 
