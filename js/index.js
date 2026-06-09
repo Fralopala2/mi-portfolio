@@ -25,7 +25,28 @@ const UpdateProgress = () => {
 const StartPreloader = () => {
     const Preloader = document.getElementById("preloader");
     if(!Preloader) return;
-    
+
+    // Splitting text into letters for .split-text elements
+    document.querySelectorAll('.split-text').forEach(el => {
+        const text = el.innerText;
+        el.innerHTML = '';
+        for (let i = 0; i < text.length; i++) {
+            let span = document.createElement('div');
+            span.innerText = text[i] === ' ' ? '\u00A0' : text[i];
+            span.style.display = 'inline-block';
+            span.style.opacity = '0';
+            span.classList.add('split-char');
+            el.appendChild(span);
+        }
+    });
+
+    // Preparar elementos para animación desde el principio
+    gsap.set('#header', {display:"block", filter:"blur(40px)", scale:1.05, opacity:0});
+    gsap.set('#navigation-content', {display:"flex"}); // Keep overlay hidden off-screen
+    gsap.set('#navigation-bar', {opacity:0, y:-30, filter:"blur(10px)"});
+    gsap.set('.header-content-box > div:not(.firstline)', {opacity:0, y:50, filter:"blur(15px)"});
+    gsap.set('.social-media', {opacity:0, scale:0, filter:"blur(5px)"});
+
     gsap.to(ProgressState, {
         value: 100,
         duration: 4.5,
@@ -46,8 +67,34 @@ const StartPreloader = () => {
                     ease: "power2.inOut",
                     onComplete: () => {
                         Preloader.style.display = "none";
-                        gsap.to('#header',0,{display:"block",delay:0});
-                        gsap.to('#navigation-content',0,{display:"flex",delay:0});
+                        
+
+                        const introTl = gsap.timeline();
+                        introTl
+                            .to('#header', {opacity:1, filter:"blur(0px)", scale:1, duration:2.5, ease:"power3.out"})
+                            .to('#navigation-bar', {opacity:1, y:0, filter:"blur(0px)", duration:1.5, ease:"power4.out"}, "-=2.0")
+                            .to('.split-char', {
+                                opacity: 1, 
+                                duration: 0.1, 
+                                stagger: 0.05, 
+                                ease: "power2.inOut"
+                            }, "-=1.8")
+                            .to('.header-content-box > div:not(.firstline)', {
+                                opacity: 1, 
+                                y: 0, 
+                                filter: "blur(0px)",
+                                duration: 1.5, 
+                                stagger: 0.2, 
+                                ease: "power3.out"
+                            }, "-=1.5")
+                            .to('.social-media', {
+                                opacity: 1, 
+                                scale: 1, 
+                                filter: "blur(0px)",
+                                duration: 0.8, 
+                                stagger: 0.1, 
+                                ease: "back.out(1.5)"
+                            }, "-=1.0");
                     }
                 }, "-=0.08");
         }
