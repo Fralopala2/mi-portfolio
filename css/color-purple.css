@@ -80,3 +80,19 @@ form button{
 .skill-category:hover {
     border-top-color: #481380;
 }
+
+.cv a button:hover {
+    box-shadow: 0 0 15px rgba(72, 19, 128, 0.6);
+}
+.portfolio-text button:hover {
+    box-shadow: 0 0 15px rgba(72, 19, 128, 0.6);
+}
+.service:hover {
+    box-shadow: 0 15px 35px rgba(72, 19, 128, 0.2);
+    border-color: rgba(72, 19, 128, 0.3);
+}
+.portfolio:hover {
+    box-shadow: 0 15px 35px rgba(72, 19, 128, 0.2);
+    border-color: rgba(72, 19, 128, 0.3);
+}
+.lang-btn.active { color: #481380; }

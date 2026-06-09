@@ -6,6 +6,7 @@ const translations = {
         "nav-contact": "CONTACT",
 
         "header-tagline": "[ Backend · Distributed Systems · AI Integration ]",
+        "i-am-a": "I am a",
         "txt-rotate": '[ " BACKEND DEVELOPER.", " JAVA & SPRING DEV.", " CREATOR." ]',
 
         "about-title": "About <span class='color'>Me</span>",
@@ -81,6 +82,7 @@ const translations = {
         "nav-contact": "CONTACTO",
 
         "header-tagline": "[ Backend · Sistemas Distribuidos · Integración IA ]",
+        "i-am-a": "Soy un",
         "txt-rotate": '[ " DESARROLLADOR BACKEND.", " DEV JAVA & SPRING.", " CREADOR." ]',
 
         "about-title": "Sobre <span class='color'>Mí</span>",
