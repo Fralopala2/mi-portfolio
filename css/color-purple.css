@@ -1,3 +1,8 @@
+:root {
+    --preloader-accent-1: #a855f7;
+    --preloader-accent-2: #7e22ce;
+    --preloader-glow: rgba(126, 34, 206, 0.38);
+}
 
 ::-webkit-scrollbar{
     width: 4px;

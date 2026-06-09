@@ -38,15 +38,50 @@
         <!--mouse  follower-->
         <!--loader-->
         <div class="preloader" id="preloader">
-            <div class="preloaderPanel">
-                <div class="preloaderTop">
-                    <span class="preloaderLabel">Loading...</span>
-                    <span class="preloaderPercent" id="progressText">0%</span>
+            <div class="preloader-bg" aria-hidden="true">
+                <div class="preloader-grid"></div>
+                <div class="preloader-orb preloader-orb--1"></div>
+                <div class="preloader-orb preloader-orb--2"></div>
+                <div class="preloader-orb preloader-orb--3"></div>
+                <div class="preloader-scanline"></div>
+            </div>
+
+            <div class="preloader-content">
+                <div class="preloader-brand">
+                    <div class="preloader-logo-wrap">
+                        <div class="preloader-logo-ring"></div>
+                        <img src="images/willy wonka logo.png" alt="" class="preloader-logo" width="76" height="76">
+                    </div>
+                    <div class="preloader-name">
+                        <span class="preloader-name-accent">Paco</span><span class="preloader-name-rest"> López</span>
+                    </div>
+                    <p class="preloader-tagline">Backend Developer · Portfolio</p>
                 </div>
-                <div class="progressBar">
-                    <div class="progressFill" id="progressFill"></div>
+
+                <div class="preloader-progress-block">
+                    <div class="preloader-percent-wrap">
+                        <span class="preloader-percent" id="progressText">0</span>
+                        <span class="preloader-percent-symbol">%</span>
+                    </div>
+                    <div class="progressBar">
+                        <div class="progressFill" id="progressFill">
+                            <span class="progressFill-shine"></span>
+                        </div>
+                    </div>
+                    <div class="preloader-steps" id="preloaderSteps">
+                        <span class="preloader-step is-active" data-limit="20">01</span>
+                        <span class="preloader-step" data-limit="45">02</span>
+                        <span class="preloader-step" data-limit="70">03</span>
+                        <span class="preloader-step" data-limit="95">04</span>
+                        <span class="preloader-step" data-limit="100">05</span>
+                    </div>
+                    <div class="progressMeta" id="progressMeta">Inicializando</div>
                 </div>
-                <div class="progressMeta" id="progressMeta">Inicializando</div>
+            </div>
+
+            <div class="preloader-footer">
+                <span class="preloaderLabel">Loading experience</span>
+                <span class="preloader-year">2026</span>
             </div>
         </div>
         <!--loader-end-->

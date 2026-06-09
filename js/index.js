@@ -11,14 +11,30 @@ const UpdateProgress = () => {
     const ProgressText = document.getElementById("progressText");
     const ProgressFill = document.getElementById("progressFill");
     const ProgressMeta = document.getElementById("progressMeta");
+    const PreloaderSteps = document.getElementById("preloaderSteps");
 
     const CurrentValue = Math.round(ProgressState.value);
-    if(ProgressText) ProgressText.textContent = `${CurrentValue}%`;
-    if(ProgressFill) ProgressFill.style.width = `${CurrentValue}%`;
+    if (ProgressText) ProgressText.textContent = `${CurrentValue}`;
+    if (ProgressFill) ProgressFill.style.width = `${CurrentValue}%`;
 
     const CurrentStep = StepList.find((StepItem) => CurrentValue <= StepItem.limit);
     if (CurrentStep && ProgressMeta) {
         ProgressMeta.textContent = CurrentStep.text;
+    }
+
+    if (PreloaderSteps) {
+        const StepElements = PreloaderSteps.querySelectorAll(".preloader-step");
+        StepElements.forEach((StepEl, Index) => {
+            const StepLimit = Number(StepEl.dataset.limit);
+            const PrevLimit = Index === 0 ? -1 : Number(StepElements[Index - 1].dataset.limit);
+
+            StepEl.classList.remove("is-active", "is-done");
+            if (CurrentValue > StepLimit) {
+                StepEl.classList.add("is-done");
+            } else if (CurrentValue > PrevLimit) {
+                StepEl.classList.add("is-active");
+            }
+        });
     }
 };
 
@@ -48,6 +64,17 @@ const StartPreloader = () => {
     gsap.set('.header-content-box > div:not(.firstline)', {opacity:0, y:50, filter:"blur(15px)"});
     gsap.set('.social-media', {opacity:0, scale:0, filter:"blur(5px)"});
 
+    gsap.set('.preloader-content', {opacity: 0, y: 36, scale: 0.96});
+    gsap.set('.preloader-footer', {opacity: 0, y: 16});
+    gsap.set('.preloader-logo-wrap', {scale: 0.6, rotation: -12});
+    gsap.set('.preloader-percent-wrap', {opacity: 0, y: 20});
+
+    gsap.timeline()
+        .to('.preloader-content', {opacity: 1, y: 0, scale: 1, duration: 0.9, ease: 'power3.out'})
+        .to('.preloader-logo-wrap', {scale: 1, rotation: 0, duration: 0.8, ease: 'back.out(1.6)'}, '-=0.65')
+        .to('.preloader-percent-wrap', {opacity: 1, y: 0, duration: 0.6, ease: 'power2.out'}, '-=0.45')
+        .to('.preloader-footer', {opacity: 1, y: 0, duration: 0.5, ease: 'power2.out'}, '-=0.35');
+
     gsap.to(ProgressState, {
         value: 100,
         duration: 4.5,
@@ -56,12 +83,20 @@ const StartPreloader = () => {
         onComplete: () => {
             const Timeline = gsap.timeline();
             Timeline
-                .to(".preloaderPanel", {
-                    y: -18,
+                .to(".preloader-content", {
+                    y: -24,
+                    scale: 0.97,
                     opacity: 0,
+                    filter: "blur(8px)",
                     duration: 0.55,
                     ease: "power2.in"
                 })
+                .to(".preloader-footer", {
+                    opacity: 0,
+                    y: -10,
+                    duration: 0.35,
+                    ease: "power2.in"
+                }, "-=0.45")
                 .to(Preloader, {
                     opacity: 0,
                     duration: 0.45,
@@ -337,4 +372,4 @@ $(function() {
             $(this).toggleClass('unmuted', !video.muted);
         }
     });
-});
+});

@@ -4,152 +4,89 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pacoal.dev</title>
+    <title>Pacoal.dev — Preloader</title>
 
+    <link rel="stylesheet" href="css/index.css">
     <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 
     <style>
-        :root {
-            --colorBg: #05080d;
-            --colorBgSoft: #0b1220;
-            --colorPanel: rgba(255, 255, 255, 0.05);
-            --colorBorder: rgba(255, 255, 255, 0.1);
-            --colorText: #f5f7fa;
-            --colorTextSoft: rgba(245, 247, 250, 0.72);
-            --colorPrimary: #60a5fa;
-            --colorSecondary: #22d3ee;
-            --shadowMain: 0 24px 80px rgba(0, 0, 0, 0.35);
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        html,
         body {
             margin: 0;
-            padding: 0;
-            min-height: 100%;
-        }
-
-        body {
-            background: #0b0f14;
             overflow: hidden;
-        }
-
-        .preloader {
-            position: fixed;
-            inset: 0;
-            z-index: 9999;
-            display: grid;
-            place-items: center;
-            padding: 24px;
-            background:
-                radial-gradient(circle at 20% 20%, rgba(96, 165, 250, 0.12), transparent 25%),
-                radial-gradient(circle at 80% 30%, rgba(34, 211, 238, 0.08), transparent 25%),
-                linear-gradient(180deg, var(--colorBg) 0%, var(--colorBgSoft) 100%);
-        }
-
-        .preloaderPanel {
-            width: min(460px, 100%);
-            padding: 28px;
-            border: 1px solid var(--colorBorder);
-            border-radius: 20px;
-            background: var(--colorPanel);
-            backdrop-filter: blur(16px);
-            box-shadow: var(--shadowMain);
-        }
-
-        .preloaderTop {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 16px;
-            margin-bottom: 16px;
-        }
-
-        .preloaderLabel {
-            font-family: Arial, sans-serif;
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            color: var(--colorTextSoft);
-        }
-
-        .preloaderPercent {
-            font-family: Arial, sans-serif;
-            font-size: 15px;
-            font-weight: 700;
-            color: var(--colorText);
-            font-variant-numeric: tabular-nums;
-        }
-
-        .progressBar {
-            width: 100%;
-            height: 8px;
-            overflow: hidden;
-            border-radius: 999px;
-            background: rgba(255, 255, 255, 0.08);
-        }
-
-        .progressFill {
-            width: 0%;
-            height: 100%;
-            border-radius: 999px;
-            background: linear-gradient(90deg, var(--colorPrimary) 0%, var(--colorSecondary) 100%);
-            box-shadow: 0 0 24px rgba(96, 165, 250, 0.4);
-        }
-
-        .progressMeta {
-            margin-top: 12px;
-            font-family: Arial, sans-serif;
-            font-size: 12px;
-            color: var(--colorTextSoft);
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
+            background: #171717;
         }
 
         .pageContent {
             opacity: 0;
             transform: translateY(14px);
-        }
-
-        @media (max-width: 640px) {
-            .preloaderPanel {
-                padding: 22px;
-                border-radius: 18px;
-            }
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            color: #f5f5f5;
+            font-family: poppins, sans-serif;
         }
     </style>
 </head>
 
 <body>
     <div class="preloader" id="preloader">
-        <div class="preloaderPanel">
-            <div class="preloaderTop">
-                <span class="preloaderLabel">Loading...</span>
-                <span class="preloaderPercent" id="progressText">0%</span>
+        <div class="preloader-bg" aria-hidden="true">
+            <div class="preloader-grid"></div>
+            <div class="preloader-orb preloader-orb--1"></div>
+            <div class="preloader-orb preloader-orb--2"></div>
+            <div class="preloader-orb preloader-orb--3"></div>
+            <div class="preloader-scanline"></div>
+        </div>
+
+        <div class="preloader-content">
+            <div class="preloader-brand">
+                <div class="preloader-logo-wrap">
+                    <div class="preloader-logo-ring"></div>
+                    <img src="images/willy wonka logo.png" alt="" class="preloader-logo" width="76" height="76">
+                </div>
+                <div class="preloader-name">
+                    <span class="preloader-name-accent">Paco</span><span class="preloader-name-rest"> López</span>
+                </div>
+                <p class="preloader-tagline">Backend Developer · Portfolio</p>
             </div>
 
-            <div class="progressBar">
-                <div class="progressFill" id="progressFill"></div>
+            <div class="preloader-progress-block">
+                <div class="preloader-percent-wrap">
+                    <span class="preloader-percent" id="progressText">0</span>
+                    <span class="preloader-percent-symbol">%</span>
+                </div>
+                <div class="progressBar">
+                    <div class="progressFill" id="progressFill">
+                        <span class="progressFill-shine"></span>
+                    </div>
+                </div>
+                <div class="preloader-steps" id="preloaderSteps">
+                    <span class="preloader-step is-active" data-limit="20">01</span>
+                    <span class="preloader-step" data-limit="45">02</span>
+                    <span class="preloader-step" data-limit="70">03</span>
+                    <span class="preloader-step" data-limit="95">04</span>
+                    <span class="preloader-step" data-limit="100">05</span>
+                </div>
+                <div class="progressMeta" id="progressMeta">Inicializando</div>
             </div>
+        </div>
 
-            <div class="progressMeta" id="progressMeta">Inicializando</div>
+        <div class="preloader-footer">
+            <span class="preloaderLabel">Loading experience</span>
+            <span class="preloader-year">2026</span>
         </div>
     </div>
 
     <div class="pageContent" id="pageContent">
-        <!-- aqui va TODA tu home real actual -->
+        <p>Contenido de la home aquí</p>
     </div>
 
     <script>
         const ProgressState = { value: 0 };
-
-        const ProgressText = document.getElementById("progressText");
-        const ProgressFill = document.getElementById("progressFill");
-        const ProgressMeta = document.getElementById("progressMeta");
+        const progressText = document.getElementById("progressText");
+        const progressFill = document.getElementById("progressFill");
+        const progressMeta = document.getElementById("progressMeta");
+        const preloaderSteps = document.getElementById("preloaderSteps");
         const Preloader = document.getElementById("preloader");
         const PageContent = document.getElementById("pageContent");
 
@@ -164,31 +101,63 @@
         const UpdateProgress = () => {
             const CurrentValue = Math.round(ProgressState.value);
 
-            ProgressText.textContent = `${CurrentValue}%`;
-            ProgressFill.style.width = `${CurrentValue}%`;
+            progressText.textContent = `${CurrentValue}`;
+            progressFill.style.width = `${CurrentValue}%`;
 
             const CurrentStep = StepList.find((StepItem) => CurrentValue <= StepItem.limit);
             if (CurrentStep) {
-                ProgressMeta.textContent = CurrentStep.text;
+                progressMeta.textContent = CurrentStep.text;
             }
+
+            const StepElements = preloaderSteps.querySelectorAll(".preloader-step");
+            StepElements.forEach((StepEl, Index) => {
+                const StepLimit = Number(StepEl.dataset.limit);
+                const PrevLimit = Index === 0 ? -1 : Number(StepElements[Index - 1].dataset.limit);
+
+                StepEl.classList.remove("is-active", "is-done");
+                if (CurrentValue > StepLimit) {
+                    StepEl.classList.add("is-done");
+                } else if (CurrentValue > PrevLimit) {
+                    StepEl.classList.add("is-active");
+                }
+            });
         };
 
         const StartPreloader = () => {
+            gsap.set('.preloader-content', { opacity: 0, y: 36, scale: 0.96 });
+            gsap.set('.preloader-footer', { opacity: 0, y: 16 });
+            gsap.set('.preloader-logo-wrap', { scale: 0.6, rotation: -12 });
+            gsap.set('.preloader-percent-wrap', { opacity: 0, y: 20 });
+
+            gsap.timeline()
+                .to('.preloader-content', { opacity: 1, y: 0, scale: 1, duration: 0.9, ease: 'power3.out' })
+                .to('.preloader-logo-wrap', { scale: 1, rotation: 0, duration: 0.8, ease: 'back.out(1.6)' }, '-=0.65')
+                .to('.preloader-percent-wrap', { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }, '-=0.45')
+                .to('.preloader-footer', { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }, '-=0.35');
+
             gsap.to(ProgressState, {
                 value: 100,
-                duration: 1.6,
+                duration: 3.2,
                 ease: "power2.out",
                 onUpdate: UpdateProgress,
                 onComplete: () => {
                     const Timeline = gsap.timeline();
 
                     Timeline
-                        .to(".preloaderPanel", {
-                            y: -18,
+                        .to(".preloader-content", {
+                            y: -24,
+                            scale: 0.97,
                             opacity: 0,
-                            duration: 0.35,
-                            ease: "power2.inOut"
+                            filter: "blur(8px)",
+                            duration: 0.55,
+                            ease: "power2.in"
                         })
+                        .to(".preloader-footer", {
+                            opacity: 0,
+                            y: -10,
+                            duration: 0.35,
+                            ease: "power2.in"
+                        }, "-=0.45")
                         .to(Preloader, {
                             opacity: 0,
                             duration: 0.45,
@@ -208,9 +177,7 @@
             });
         };
 
-        window.addEventListener("load", () => {
-            StartPreloader();
-        });
+        window.addEventListener("load", StartPreloader);
     </script>
 </body>
 
