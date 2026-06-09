@@ -12,6 +12,9 @@
       background-color: #481380;
   }
   .color{
+      background: linear-gradient(90deg, #a855f7, #7e22ce);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       color: #481380;
   }
   #about-content a{
@@ -25,7 +28,7 @@
     box-shadow:0px 0px 0px 0px #481380 ;
   }
   .service:hover .service-img img{
-    box-shadow:0px 0px 0px 400px #481380 ;
+    box-shadow:0px 0px 0px 400px #1e2a38 ;
 }
 .html-progress{
     background: #481380;
@@ -66,7 +69,7 @@ form button{
 }
 @media all and (max-width: 550px) and (min-width: 5px){
     .service:hover .service-img img{
-        box-shadow:0px 0px 0px 0px #c70039 ;
+        box-shadow:0px 0px 0px 0px #1e2a38 ;
     }
 }
 

@@ -7,33 +7,31 @@
     background: #035aa6; 
     border-radius: 4px;
     width: 4px;
-  }
-  #breaker{
-      background-color: #035aa6;
-  }
-  .color{
-      background: linear-gradient(90deg, #38bdf8, #0ea5e9);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      color: #035aa6;
-  }
-  #about-content a{
-      color:#035aa6 ;
-  }
-  .cv a button{
-      background: #035aa6;
-  }
-  .service-img img{
+}
+#breaker{
+    background-color: #035aa6;
+}
+.color{
+    background: linear-gradient(90deg, #38bdf8, #0ea5e9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #035aa6;
+}
+#about-content a{
+    color:#035aa6 ;
+}
+.cv a button{
+    background: linear-gradient(135deg, #0ea5e9, #035aa6);
+    border: 1px solid rgba(14, 165, 233, 0.2);
+}
+.service-img img{
     background: #035aa6;
     box-shadow:0px 0px 0px 0px #035aa6 ;
-  }
-  .service:hover .service-img img{
-    box-shadow:0px 0px 0px 400px #035aa6 ;
+}
+.service:hover .service-img img{
+    box-shadow:0px 0px 0px 400px #1e2a38 ;
 }
 .html-progress{
-    background: #035aa6;
-}
-.js-progress{
     background: #035aa6;
 }
 .adobe-progress{
@@ -43,6 +41,9 @@
     background: #035aa6;
 }
 .jquery-progress{
+    background: #035aa6;
+}
+.js-progress{
     background: #035aa6;
 }
 .seo-progress{
@@ -69,7 +70,7 @@ form button{
 }
 @media all and (max-width: 550px) and (min-width: 5px){
     .service:hover .service-img img{
-        box-shadow:0px 0px 0px 0px #c70039 ;
+        box-shadow:0px 0px 0px 0px #1e2a38 ;
     }
 }
 
@@ -96,3 +97,4 @@ form button{
     border-color: rgba(3, 90, 166, 0.3);
 }
 .lang-btn.active { color: #035aa6; }
+

@@ -601,7 +601,7 @@ body {
   justify-content: center;
   font-size: 16px;
   font-family: poppins;
-  width: 50%;
+  width: 45%;
   padding: 40px;
   font-weight: 400;
   background-color: #191919;
@@ -611,11 +611,11 @@ body {
 }
 
 .about-first-paragraph .color {
-  font-size: 32px;
+  font-size: 28px;
 }
 
 .about-first-line {
-  font-size: 28px;
+  font-size: 24px;
   opacity: 1;
   margin-bottom: 10px;
   display: block;
@@ -623,7 +623,7 @@ body {
 
 .about-second-line {
   opacity: 0.8;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 200;
 }
 
@@ -639,7 +639,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100vw;
+  width: 100%;
   height: auto;
   padding-left: 50px;
   padding-right: 50px;
@@ -649,8 +649,8 @@ body {
 .about-img img,
 .about-video-container {
   width: 100%;
-  height: 380px;
-  padding: 30px;
+  height: auto;
+  padding: 20px;
   border-radius: 40px;
   position: relative;
   display: inline-block;
@@ -658,16 +658,15 @@ body {
 
 .about-img video {
   width: 100%;
-  height: 100%;
+  height: auto;
   border-radius: 20px;
-  object-fit: cover;
   display: block;
 }
 
 .about-img {
-  width: 550px;
+  width: 700px;
   height: auto;
-  padding: 30px;
+  padding: 20px;
   padding-top: 10px;
   border-radius: 40px;
   position: relative;
@@ -754,30 +753,30 @@ body {
 .cv {
   padding-top: 40px;
   display: flex;
-  gap: 12px;
+  gap: 25px;
   flex-wrap: wrap;
   justify-content: center;
 }
 
 .cv a button {
-  background: transparent;
-  border: none;
-  padding: 15px 30px;
-  color: whitesmoke;
   background: #c70039;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 12px 28px;
+  color: whitesmoke;
   outline: none;
-  font-size: 20px;
-  font-family: aileron;
-  border-radius: 4px;
-  font-weight: 400;
+  font-size: 16px;
+  font-family: poppins, sans-serif;
+  border-radius: 30px;
+  font-weight: 500;
   cursor: pointer;
   position: relative;
-  transition: all 0.4s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .cv a button:hover {
-  opacity: 1;
-  transform: scale(1.05);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
 #services {
