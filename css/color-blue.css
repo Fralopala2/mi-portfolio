@@ -95,3 +95,4 @@ form button{
     box-shadow: 0 15px 35px rgba(3, 90, 166, 0.2);
     border-color: rgba(3, 90, 166, 0.3);
 }
+.lang-btn.active { color: #035aa6; }

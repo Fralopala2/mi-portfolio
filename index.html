@@ -53,10 +53,10 @@
                 <span class="close-second"></span>
             </div>
             <div class="navigation-links">
-                <a href="#" data-text="HOME" id="home-link">HOME</a>
-                <a href="#" data-text="ABOUT" id="about-link">ABOUT</a>
-                <a href="#" data-text="PORTFOLIO" id="portfolio-link">PORTFOLIO</a>
-                <a href="#" data-text="CONTACT" id="contact-link">CONTACT</a>
+                <a href="#" data-text="HOME" id="home-link" data-i18n="nav-home">HOME</a>
+                <a href="#" data-text="ABOUT" id="about-link" data-i18n="nav-about">ABOUT</a>
+                <a href="#" data-text="PORTFOLIO" id="portfolio-link" data-i18n="nav-portfolio">PORTFOLIO</a>
+                <a href="#" data-text="CONTACT" id="contact-link" data-i18n="nav-contact">CONTACT</a>
             </div>
         </div>
         <!--Navigator-Fullscreen END-->
@@ -66,6 +66,9 @@
             <a href="">
                 <img src="images/willy wonka logo.png" alt="logo" width="80" height="80">
             </a>
+            <div class="lang-switch">
+                <span class="lang-btn active" data-lang="en">EN</span> | <span class="lang-btn" data-lang="es">ES</span>
+            </div>
             <div class="menubar">
                 <span class="first-span"></span>
                 <span class="second-span"></span>
@@ -97,10 +100,10 @@
                     <div class="secondline">
                         I am a
                         <span class="txt-rotate color" data-period="1200"
-                            data-rotate='[ " BACKEND DEVELOPER.", " JAVA & SPRING DEV.", " CREATOR." ]'></span>
+                            data-rotate='[ " BACKEND DEVELOPER.", " JAVA & SPRING DEV.", " CREATOR." ]' data-i18n="txt-rotate"></span>
                         <span class="slash">|</span>
                     </div>
-                    <div class="header-tagline">
+                    <div class="header-tagline" data-i18n="header-tagline">
                         [ <span class="mobile-hide">Backend · </span>Distributed Systems · AI Integration ]
                     </div>
                     <div class="contact">
@@ -165,7 +168,7 @@
             </div>
             <!--about content-->
             <div id="about-content">
-                <div class="about-header">
+                <div class="about-header" data-i18n="about-title">
                     About <span class="color">Me</span>
                     <span class="header-caption">Get to Know <span class="color"> Me.</span></span>
                 </div>
@@ -176,7 +179,7 @@
                             I design and build robust, high-performance <span class="color">Backend Systems</span>
                         </span>
                         <br>
-                        <span class="about-second-line">Focused on real-time data processing, IoT architectures, and
+                        <span class="about-second-line" data-i18n="about-desc">Focused on real-time data processing, IoT architectures, and
                             distributed systems. I combine core backend engineering with modern infrastructure
                             and AI integration to deliver scalable, end-to-end solutions that solve complex real-world
                             challenges.</span>
@@ -244,7 +247,7 @@
                     </div>
                 </div>
                 <!--services header-->
-                <div class="services-heading wow">
+                <div class="services-heading wow" data-i18n="services-title">
                     <span class="color">My</span> Services
                 </div>
                 <!--services header end-->
@@ -255,8 +258,8 @@
                             <img src="images/server.png" alt="real-time data pipelines">
                         </div>
                         <div class="service-description">
-                            <h2>Real-Time Data Pipelines</h2>
-                            <p>High-throughput ingestion and low-latency processing systems.</p>
+                            <h2 data-i18n="srv1-title">Real-Time Data Pipelines</h2>
+                            <p data-i18n="srv1-desc">High-throughput ingestion and low-latency processing systems.</p>
                         </div>
                     </div>
                     <div class="service-two service wow">
@@ -264,8 +267,8 @@
                             <img src="images/integration.png" alt="event-driven architectures">
                         </div>
                         <div class="service-description">
-                            <h2>Event-Driven Architectures</h2>
-                            <p>Distributed systems communicating seamlessly via MQTT and WebSockets.</p>
+                            <h2 data-i18n="srv2-title">Event-Driven Architectures</h2>
+                            <p data-i18n="srv2-desc">Distributed systems communicating seamlessly via MQTT and WebSockets.</p>
                         </div>
                     </div>
                     <div class="service-three service wow">
@@ -273,8 +276,8 @@
                             <img src="images/coding.png" alt="enterprise apis backends">
                         </div>
                         <div class="service-description">
-                            <h2>Enterprise APIs & Backends</h2>
-                            <p>Clean, secure, and maintainable RESTful services.</p>
+                            <h2 data-i18n="srv3-title">Enterprise APIs & Backends</h2>
+                            <p data-i18n="srv3-desc">Clean, secure, and maintainable RESTful services.</p>
                         </div>
                     </div>
                     <div class="service-four service wow">
@@ -309,13 +312,13 @@
             <!--services content end-->
             <!--services end-->
             <div id="skills">
-                <div class="skills-header">
+                <div class="skills-header" data-i18n="skills-title">
                     My <span class="color"> Skills</span>
                 </div>
                 <div class="skills-container">
                     <!-- Backend -->
                     <div class="skill-category wow fadeInUp">
-                        <h3>Backend</h3>
+                        <h3 data-i18n="skill-cat-backend">Backend</h3>
                         <div class="skill-grid">
                             <div class="skill-item">
                                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original-wordmark.svg"
@@ -352,7 +355,7 @@
 
                     <!-- DevOps & Cloud -->
                     <div class="skill-category wow fadeInUp" data-wow-delay="0.1s">
-                        <h3>DevOps & Cloud</h3>
+                        <h3 data-i18n="skill-cat-devops">DevOps & Cloud</h3>
                         <div class="skill-grid">
                             <div class="skill-item">
                                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg"
@@ -389,7 +392,7 @@
 
                     <!-- Database -->
                     <div class="skill-category wow fadeInUp" data-wow-delay="0.2s">
-                        <h3>Database</h3>
+                        <h3 data-i18n="skill-cat-db">Database</h3>
                         <div class="skill-grid">
                             <div class="skill-item">
                                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg"
@@ -429,7 +432,7 @@
 
                     <!-- Tools -->
                     <div class="skill-category wow fadeInUp" data-wow-delay="0.3s">
-                        <h3>Tools</h3>
+                        <h3 data-i18n="skill-cat-tools">Tools</h3>
                         <div class="skill-grid">
                             <div class="skill-item">
                                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg"
@@ -572,8 +575,8 @@
                     </div>
                 </div>
             </div>
-            <div class="portfolio-header"> <span class="color"> My </span> Portfolio
-                <span class="header-caption"> Some Of My <span class="color"> Works</span></span>
+            <div class="portfolio-header" data-i18n="portfolio-title"> <span class="color"> My </span> Portfolio
+                <span class="header-caption" data-i18n="portfolio-subtitle"> Some Of My <span class="color"> Works</span></span>
             </div>
             <div id="portfolio-content">
                 <div class="portfolio portfolio-opencodeMCP">
@@ -583,13 +586,13 @@
                             sizes="(max-width:768px) 720px, 1320px" alt="Opencode MCP">
                     </div>
                     <div class="portfolio-text">
-                        <h2>Opencode-mcp</h2>
-                        <p>Opencode-mcp is a VSIX extension for VSCode and Antigravity that allows you to use your local
+                        <h2 data-i18n="port1-title">Opencode-mcp</h2>
+                        <p data-i18n="port1-desc">Opencode-mcp is a VSIX extension for VSCode and Antigravity that allows you to use your local
                             Opencode server, with agents, skills, and MCP tools, with a very user-friendly interface
                             from your IDE, instead of using the web interface or its CLI.</p>
                         <div class="portfolio-buttons">
                             <a href="https://github.com/Fralopala2/opencode-mcp" class="portfolio-btn"><button><span
-                                        class="index"> GitHub Repo<i class="gg-arrow-right"></i></span></button></a>
+                                        class="index" data-i18n="btn-github"> GitHub Repo<i class="gg-arrow-right"></i></span></button></a>
                         </div>
                     </div>
                 </div>
@@ -600,13 +603,13 @@
                             sizes="(max-width:768px) 720px, 1320px" alt="Epsylon Control Center">
                     </div>
                     <div class="portfolio-text">
-                        <h2>Epsylon Control Center</h2>
-                        <p>Epsylon is an AI-powered desktop assistant designed to revolutionize the job search process.
+                        <h2 data-i18n="port2-title">Epsylon Control Center</h2>
+                        <p data-i18n="port2-desc">Epsylon is an AI-powered desktop assistant designed to revolutionize the job search process.
                             It combines automated job listing discovery with real-time intelligent assistance during
                             technical interviews, all within a discreet and powerful desktop app.</p>
                         <div class="portfolio-buttons">
                             <a href="https://github.com/Fralopala2/Epsylon-show" class="portfolio-btn"><button><span
-                                        class="index"> GitHub Repo<i class="gg-arrow-right"></i></span></button></a>
+                                        class="index" data-i18n="btn-github"> GitHub Repo<i class="gg-arrow-right"></i></span></button></a>
                         </div>
                     </div>
                 </div>
@@ -615,14 +618,14 @@
                         <img src="images/logos/LogoMedusse.png" alt="Medusse IoT Platform">
                     </div>
                     <div class="portfolio-text">
-                        <h2>Medusse IoT Platform</h2>
-                        <p>A comprehensive IoT platform for managing and monitoring connected devices in industrial
+                        <h2 data-i18n="port3-title">Medusse IoT Platform</h2>
+                        <p data-i18n="port3-desc">A comprehensive IoT platform for managing and monitoring connected devices in industrial
                             environments.</p>
                         <div class="portfolio-buttons" style="display:flex; gap:10px;">
                             <a href="https://github.com/Fralopala2/medusse-show" class="portfolio-btn"><button><span
-                                        class="index"> GitHub Repo<i class="gg-arrow-right"></i></span></button></a>
+                                        class="index" data-i18n="btn-github"> GitHub Repo<i class="gg-arrow-right"></i></span></button></a>
                             <a href="https://github.com/Fralopala2/medusse-show/blob/clase/Esquema%20proyecto.png?raw=true"
-                                target="_blank" class="portfolio-btn"><button><span class="index"> Architecture<i
+                                target="_blank" class="portfolio-btn"><button><span class="index" data-i18n="btn-architecture"> Architecture<i
                                             class="gg-arrow-right"></i></span></button></a>
                         </div>
                     </div>
@@ -634,15 +637,15 @@
                             sizes="(max-width:768px) 720px, 1320px" alt="Gestion de Proyectos UP4">
                     </div>
                     <div class="portfolio-text">
-                        <h2>Project Management System</h2>
-                        <p>Project management system for industrial innovation developed with Spring Boot (Industry,
+                        <h2 data-i18n="port4-title">Project Management System</h2>
+                        <p data-i18n="port4-desc">Project management system for industrial innovation developed with Spring Boot (Industry,
                             Innovation and Infrastructure).</p>
                         <div class="portfolio-buttons" style="display:flex; gap:10px;">
                             <a href="https://github.com/Fralopala2/Gestion-de-Proyectos-UP4.git"
-                                class="portfolio-btn"><button><span class="index"> GitHub Repo<i
+                                class="portfolio-btn"><button><span class="index" data-i18n="btn-github"> GitHub Repo<i
                                             class="gg-arrow-right"></i></span></button></a>
                             <a href="https://github.com/user-attachments/assets/0b314ecd-a50c-457b-b331-0ded378d4381"
-                                target="_blank" class="portfolio-btn"><button><span class="index"> Architecture<i
+                                target="_blank" class="portfolio-btn"><button><span class="index" data-i18n="btn-architecture"> Architecture<i
                                             class="gg-arrow-right"></i></span></button></a>
                         </div>
                     </div>
@@ -654,12 +657,12 @@
                             sizes="(max-width:768px) 720px, 1320px" alt="ApiNot">
                     </div>
                     <div class="portfolio-text">
-                        <h2>ApiNot</h2>
-                        <p>ApiNot is a data platform for collecting, processing and visualizing real estate pricing data
+                        <h2 data-i18n="port5-title">ApiNot</h2>
+                        <p data-i18n="port5-desc">ApiNot is a data platform for collecting, processing and visualizing real estate pricing data
                             across Spanish provinces in real time.</p>
                         <div class="portfolio-buttons">
                             <a href="https://github.com/Fralopala2/APIpnot.git" class="portfolio-btn"><button><span
-                                        class="index"> GitHub Repo<i class="gg-arrow-right"></i></span></button></a>
+                                        class="index" data-i18n="btn-github"> GitHub Repo<i class="gg-arrow-right"></i></span></button></a>
                         </div>
                     </div>
                 </div>
@@ -670,16 +673,16 @@
                             sizes="(max-width:768px) 720px, 1320px" alt="portfolio-minusfive">
                     </div>
                     <div class="portfolio-text">
-                        <h2>Citabot</h2>
-                        <p>Citabot is a Flutter app for Android that automates the search for available appointments in
+                        <h2 data-i18n="port6-title">Citabot</h2>
+                        <p data-i18n="port6-desc">Citabot is a Flutter app for Android that automates the search for available appointments in
                             ITV (vehicle inspection). The app connects to a robust Python FastAPI backend that performs
                             real-time scraping, delivers accurate appointment data, and sends automatic push
                             notifications when new appointments become available.</p>
                         <div class="portfolio-buttons" style="display:flex; gap:10px;">
                             <a href="https://github.com/Fralopala2/Citabot.git" class="portfolio-btn"><button><span
-                                        class="index"> GitHub Repo<i class="gg-arrow-right"></i></span></button></a>
+                                        class="index" data-i18n="btn-github"> GitHub Repo<i class="gg-arrow-right"></i></span></button></a>
                             <a href="https://play.google.com/store/apps/details?id=com.paco.citabot&pcampaignid=web_share"
-                                class="portfolio-btn google-play"><button><span class="index"> Google Play<i
+                                class="portfolio-btn google-play"><button><span class="index" data-i18n="btn-googleplay"> Google Play<i
                                             class="gg-arrow-right"></i></span></button></a>
                         </div>
                     </div>
@@ -731,8 +734,8 @@
                 </div>
             </div>
             <div class="contact-main-content">
-                <div class="contact-header">Contact <span class="color"> Me</span>
-                    <div class="contact-header-caption"> <span class="color"> Get</span> In Touch.</div>
+                <div class="contact-header" data-i18n="contact-title">Contact <span class="color"> Me</span>
+                    <div class="contact-header-caption" data-i18n="contact-subtitle"> <span class="color"> Get</span> In Touch.</div>
                 </div>
                 <div class="contact-content">
                     <!--Contact form-->
@@ -742,17 +745,17 @@
                         </div>
                         <form id="myForm">
                             <div class="input-line">
-                                <input id="name" type="text" placeholder="Name" class="input-name" name="from_name"
+                                <input id="name" type="text" placeholder="Name" class="input-name" name="from_name" data-i18n="form-name"
                                     required>
-                                <input id="email" type="email" placeholder="Email" class="input-name" name="from_email"
+                                <input id="email" type="email" placeholder="Email" class="input-name" name="from_email" data-i18n="form-email"
                                     required>
                             </div>
                             <input type="text" id="subject" placeholder="Subject" class="input-subject" name="subject"
                                 required>
-                            <textarea id="body" class="input-textarea" placeholder="Message" name="message"
+                            <textarea id="body" class="input-textarea" placeholder="Message" name="message" data-i18n="form-msg"
                                 required></textarea>
                             <button type="submit" id="submit">
-                                <span id="submit-text">Submit</span>
+                                <span id="submit-text" data-i18n="btn-submit">Submit</span>
                                 <span id="submit-loading" style="display: none;">Sending...</span>
                             </button>
                         </form>
@@ -820,6 +823,7 @@
     <script>
         particlesJS("particles", { "particles": { "number": { "value": 40, "density": { "enable": true, "value_area": 800 } }, "color": { "value": "#ffffff" }, "shape": { "type": "circle", "stroke": { "width": 0, "color": "#000000" }, "polygon": { "nb_sides": 5 }, "image": { "src": "img/github.svg", "width": 100, "height": 100 } }, "opacity": { "value": 0.5, "random": false, "anim": { "enable": false, "speed": 1, "opacity_min": 0.1, "sync": false } }, "size": { "value": 3, "random": true, "anim": { "enable": false, "speed": 40, "size_min": 0.1, "sync": false } }, "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 }, "move": { "enable": true, "speed": 6, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false, "attract": { "enable": false, "rotateX": 600, "rotateY": 1200 } } }, "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "repulse" }, "onclick": { "enable": true, "mode": "push" }, "resize": true }, "modes": { "grab": { "distance": 400, "line_linked": { "opacity": 1 } }, "bubble": { "distance": 400, "size": 40, "duration": 2, "opacity": 8, "speed": 3 }, "repulse": { "distance": 200, "duration": 0.4 }, "push": { "particles_nb": 4 }, "remove": { "particles_nb": 2 } } }, "retina_detect": true });
     </script>
+    <script src='js/translations.js'></script>
 </body>
 
 </html>
