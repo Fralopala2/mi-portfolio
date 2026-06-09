@@ -92,7 +92,9 @@ body {
   width: 100%;
   position: fixed;
   z-index: 5;
-  background-color: #020202;
+  background-color: rgba(2, 2, 2, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   transform: translateY(-200%);
   display: flex;
   flex-direction: column;
@@ -106,7 +108,10 @@ body {
   width: 100%;
   z-index: 3;
   padding: 10px;
-  background: transparent;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   overflow: hidden;
 }
 
@@ -820,7 +825,10 @@ body {
   height: 380px;
   width: 28%;
   margin: 1.5%;
-  background-color: #191919;
+  background-color: rgba(25, 25, 25, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   display: inline-block;
   box-shadow: 0px 0px 25px rgb(0, 0, 0, 0.05);
   position: relative;
@@ -829,6 +837,13 @@ body {
   border-radius: 10px;
   overflow: hidden;
   animation: opacity 1.4s ease;
+  transition: all 0.4s ease;
+}
+
+.service:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(199, 0, 57, 0.2);
+  border-color: rgba(199, 0, 57, 0.3);
 }
 
 .service-img {
@@ -1055,11 +1070,14 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  background-color: #191919;
+  background-color: rgba(25, 25, 25, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
   margin: 30px 0;
   padding: 0;
 }
@@ -1070,6 +1088,8 @@ body {
 
 .portfolio:hover {
   transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(199, 0, 57, 0.2);
+  border-color: rgba(199, 0, 57, 0.3);
 }
 
 .portfolio-text {
