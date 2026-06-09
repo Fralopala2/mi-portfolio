@@ -755,19 +755,19 @@ body {
   display: flex;
   gap: 25px;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
 }
 
 .cv a button {
   background: #c70039;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 12px 28px;
+  padding: 14px 32px;
   color: whitesmoke;
   outline: none;
   font-size: 16px;
   font-family: poppins, sans-serif;
-  border-radius: 30px;
-  font-weight: 500;
+  border-radius: 40px;
+  font-weight: 600;
   cursor: pointer;
   position: relative;
   transition: all 0.3s ease;
