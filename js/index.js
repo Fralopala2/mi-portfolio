@@ -1,10 +1,17 @@
 const ProgressState = { value: 0 };
+const PRELOADER_DURATION = 4;
+const PRELOADER_HOLD = 0.5;
+
+let preloaderStarted = false;
+let preloaderPageLoaded = false;
+let preloaderProgressDone = false;
+
 const StepList = [
-    { limit: 20, text: "Inicializando" },
-    { limit: 45, text: "Cargando interfaz" },
-    { limit: 70, text: "Preparando contenido" },
-    { limit: 95, text: "Aplicando transiciones" },
-    { limit: 100, text: "Listo" }
+    { limit: 20, text: "Initializing" },
+    { limit: 45, text: "Loading interface" },
+    { limit: 70, text: "Preparing content" },
+    { limit: 95, text: "Applying transitions" },
+    { limit: 100, text: "Ready" }
 ];
 
 const UpdateProgress = () => {
@@ -38,9 +45,75 @@ const UpdateProgress = () => {
     }
 };
 
+const FinishPreloader = () => {
+    const Preloader = document.getElementById("preloader");
+    if (!Preloader) return;
+
+    const Timeline = gsap.timeline();
+    Timeline
+        .to(".preloader-content", {
+            y: -24,
+            scale: 0.97,
+            opacity: 0,
+            filter: "blur(8px)",
+            duration: 0.55,
+            ease: "power2.in"
+        })
+        .to(".preloader-footer", {
+            opacity: 0,
+            y: -10,
+            duration: 0.35,
+            ease: "power2.in"
+        }, "-=0.45")
+        .to(Preloader, {
+            opacity: 0,
+            duration: 0.45,
+            ease: "power2.inOut",
+            onComplete: () => {
+                Preloader.style.display = "none";
+
+                const introTl = gsap.timeline();
+
+                gsap.to('#displacement', { attr: { scale: 0 }, duration: 3.5, ease: "power3.out" });
+
+                introTl
+                    .to('#header', { opacity: 1, filter: "url(#distortFilter) blur(0px)", scale: 1, duration: 3.0, ease: "power3.out" })
+                    .to('#navigation-bar', { opacity: 1, y: 0, filter: "blur(0px)", duration: 1.5, ease: "power4.out" }, "-=2.5")
+                    .to('.split-char', {
+                        opacity: 1,
+                        duration: 0.1,
+                        stagger: 0.05,
+                        ease: "power2.inOut"
+                    }, "-=2.2")
+                    .to('.header-content-box > div:not(.firstline)', {
+                        opacity: 1,
+                        y: 0,
+                        filter: "blur(0px)",
+                        duration: 1.5,
+                        stagger: 0.2,
+                        ease: "power3.out"
+                    }, "-=1.8")
+                    .to('.social-media', {
+                        opacity: 1,
+                        scale: 1,
+                        filter: "blur(0px)",
+                        duration: 0.8,
+                        stagger: 0.1,
+                        ease: "back.out(1.5)"
+                    }, "-=1.2");
+            }
+        }, "-=0.08");
+};
+
+const TryCompletePreloader = () => {
+    if (!preloaderPageLoaded || !preloaderProgressDone) return;
+    gsap.delayedCall(PRELOADER_HOLD, FinishPreloader);
+};
+
 const StartPreloader = () => {
     const Preloader = document.getElementById("preloader");
-    if(!Preloader) return;
+    if (!Preloader || preloaderStarted) return;
+    preloaderStarted = true;
 
     // Splitting text into letters for .split-text elements
     document.querySelectorAll('.split-text').forEach(el => {
@@ -70,79 +143,56 @@ const StartPreloader = () => {
     gsap.set('.preloader-percent-wrap', {opacity: 0, y: 20});
 
     gsap.timeline()
-        .to('.preloader-content', {opacity: 1, y: 0, scale: 1, duration: 0.9, ease: 'power3.out'})
-        .to('.preloader-logo-wrap', {scale: 1, rotation: 0, duration: 0.8, ease: 'back.out(1.6)'}, '-=0.65')
-        .to('.preloader-percent-wrap', {opacity: 1, y: 0, duration: 0.6, ease: 'power2.out'}, '-=0.45')
-        .to('.preloader-footer', {opacity: 1, y: 0, duration: 0.5, ease: 'power2.out'}, '-=0.35');
+        .to('.preloader-content', { opacity: 1, y: 0, scale: 1, duration: 0.9, ease: 'power3.out' })
+        .to('.preloader-logo-wrap', { scale: 1, rotation: 0, duration: 0.8, ease: 'back.out(1.6)' }, '-=0.65')
+        .to('.preloader-percent-wrap', { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }, '-=0.45')
+        .to('.preloader-footer', { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }, '-=0.35');
+
+    gsap.to('.preloader-logo-ring--inner', {
+        rotation: 360,
+        duration: 2.2,
+        ease: 'none',
+        repeat: -1
+    });
+    gsap.to('.preloader-logo-ring--outer', {
+        rotation: -360,
+        duration: 3.6,
+        ease: 'none',
+        repeat: -1
+    });
+    gsap.to('.preloader-logo-orbit', {
+        rotation: 360,
+        duration: 2.8,
+        ease: 'none',
+        repeat: -1
+    });
+    gsap.to('.preloader-logo', {
+        scale: 1.06,
+        duration: 1.4,
+        ease: 'sine.inOut',
+        yoyo: true,
+        repeat: -1
+    });
 
     gsap.to(ProgressState, {
         value: 100,
-        duration: 4.5,
-        ease: "power2.out",
+        duration: PRELOADER_DURATION,
+        ease: "none",
         onUpdate: UpdateProgress,
         onComplete: () => {
-            const Timeline = gsap.timeline();
-            Timeline
-                .to(".preloader-content", {
-                    y: -24,
-                    scale: 0.97,
-                    opacity: 0,
-                    filter: "blur(8px)",
-                    duration: 0.55,
-                    ease: "power2.in"
-                })
-                .to(".preloader-footer", {
-                    opacity: 0,
-                    y: -10,
-                    duration: 0.35,
-                    ease: "power2.in"
-                }, "-=0.45")
-                .to(Preloader, {
-                    opacity: 0,
-                    duration: 0.45,
-                    ease: "power2.inOut",
-                    onComplete: () => {
-                        Preloader.style.display = "none";
-                        
-
-                        const introTl = gsap.timeline();
-                        
-                        // Animate displacement scale to 0
-                        gsap.to('#displacement', {attr: {scale: 0}, duration: 3.5, ease: "power3.out"});
-
-                        introTl
-                            .to('#header', {opacity:1, filter:"url(#distortFilter) blur(0px)", scale:1, duration:3.0, ease:"power3.out"})
-                            .to('#navigation-bar', {opacity:1, y:0, filter:"blur(0px)", duration:1.5, ease:"power4.out"}, "-=2.5")
-                            .to('.split-char', {
-                                opacity: 1, 
-                                duration: 0.1, 
-                                stagger: 0.05, 
-                                ease: "power2.inOut"
-                            }, "-=2.2")
-                            .to('.header-content-box > div:not(.firstline)', {
-                                opacity: 1, 
-                                y: 0, 
-                                filter: "blur(0px)",
-                                duration: 1.5, 
-                                stagger: 0.2, 
-                                ease: "power3.out"
-                            }, "-=1.8")
-                            .to('.social-media', {
-                                opacity: 1, 
-                                scale: 1, 
-                                filter: "blur(0px)",
-                                duration: 0.8, 
-                                stagger: 0.1, 
-                                ease: "back.out(1.5)"
-                            }, "-=1.2");
-                    }
-                }, "-=0.08");
+            preloaderProgressDone = true;
+            TryCompletePreloader();
         }
     });
 };
 
-$(window).on('load',function(){
+$(function () {
     StartPreloader();
+});
+
+$(window).on('load', function () {
+    preloaderPageLoaded = true;
+    TryCompletePreloader();
 });
 $(function(){
   $('.color-panel').on("click",function(e) {
