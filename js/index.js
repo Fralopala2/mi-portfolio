@@ -41,7 +41,8 @@ const StartPreloader = () => {
     });
 
     // Preparar elementos para animación desde el principio
-    gsap.set('#header', {display:"block", filter:"blur(40px)", scale:1.05, opacity:0});
+    gsap.set('#header', {display:"block", filter:"url(#distortFilter) blur(40px)", scale:1.05, opacity:0});
+    gsap.set('#displacement', {attr: {scale: 50}});
     gsap.set('#navigation-content', {display:"flex"}); // Keep overlay hidden off-screen
     gsap.set('#navigation-bar', {opacity:0, y:-30, filter:"blur(10px)"});
     gsap.set('.header-content-box > div:not(.firstline)', {opacity:0, y:50, filter:"blur(15px)"});
@@ -70,15 +71,19 @@ const StartPreloader = () => {
                         
 
                         const introTl = gsap.timeline();
+                        
+                        // Animate displacement scale to 0
+                        gsap.to('#displacement', {attr: {scale: 0}, duration: 3.5, ease: "power3.out"});
+
                         introTl
-                            .to('#header', {opacity:1, filter:"blur(0px)", scale:1, duration:2.5, ease:"power3.out"})
-                            .to('#navigation-bar', {opacity:1, y:0, filter:"blur(0px)", duration:1.5, ease:"power4.out"}, "-=2.0")
+                            .to('#header', {opacity:1, filter:"url(#distortFilter) blur(0px)", scale:1, duration:3.0, ease:"power3.out"})
+                            .to('#navigation-bar', {opacity:1, y:0, filter:"blur(0px)", duration:1.5, ease:"power4.out"}, "-=2.5")
                             .to('.split-char', {
                                 opacity: 1, 
                                 duration: 0.1, 
                                 stagger: 0.05, 
                                 ease: "power2.inOut"
-                            }, "-=1.8")
+                            }, "-=2.2")
                             .to('.header-content-box > div:not(.firstline)', {
                                 opacity: 1, 
                                 y: 0, 
@@ -86,7 +91,7 @@ const StartPreloader = () => {
                                 duration: 1.5, 
                                 stagger: 0.2, 
                                 ease: "power3.out"
-                            }, "-=1.5")
+                            }, "-=1.8")
                             .to('.social-media', {
                                 opacity: 1, 
                                 scale: 1, 
@@ -94,7 +99,7 @@ const StartPreloader = () => {
                                 duration: 0.8, 
                                 stagger: 0.1, 
                                 ease: "back.out(1.5)"
-                            }, "-=1.0");
+                            }, "-=1.2");
                     }
                 }, "-=0.08");
         }
