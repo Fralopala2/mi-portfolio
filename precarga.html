@@ -89,8 +89,8 @@
 
     <script>
         const ProgressState = { value: 0 };
-        const PRELOADER_DURATION = 4;
-        const PRELOADER_HOLD = 0.5;
+        const PRELOADER_DURATION = 2.0;
+        const PRELOADER_HOLD = 0.2;
         const progressText = document.getElementById("progressText");
         const progressFill = document.getElementById("progressFill");
         const progressMeta = document.getElementById("progressMeta");
@@ -164,12 +164,12 @@
                                 scale: 0.97,
                                 opacity: 0,
                                 filter: "blur(8px)",
-                                duration: 0.55,
+                                duration: 0.35,
                                 ease: "power2.in"
                             })
                             .to(Preloader, {
                                 opacity: 0,
-                                duration: 0.45,
+                                duration: 0.30,
                                 ease: "power2.inOut",
                                 onComplete: () => {
                                     Preloader.style.display = "none";

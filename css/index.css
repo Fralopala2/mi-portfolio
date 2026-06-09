@@ -2,6 +2,15 @@
 @import url("https://fonts.googleapis.com/css?family=Monoton&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Poppins:500&display=swap");
 
+/* Default accent — overridden by each color-*.css theme */
+:root {
+  --accent:   #c70039;
+  --accent-2: #c70039;
+  --preloader-accent-1: #fb7185;
+  --preloader-accent-2: #c70039;
+  --preloader-glow: rgba(199, 0, 57, 0.38);
+}
+
 * {
   padding: 0%;
   margin: 0%;
@@ -68,9 +77,20 @@ body {
 
 html.preloader-active,
 body.preloader-active {
-  overflow: hidden;
-  height: 100%;
+  overflow: hidden !important;
+  overflow-y: hidden !important;
+  height: 100% !important;
+  max-height: 100vh !important;
   touch-action: none;
+}
+
+/* Hide scrollbar gutter during preload */
+html.preloader-active {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+html.preloader-active::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
 }
 
 #header {
@@ -342,6 +362,168 @@ body.preloader-active {
   font-weight: 700;
   font-family: poppins;
   font-size: 65px;
+}
+
+/* ── Title Morph Animation ── */
+.title-morph-wrap {
+  position: relative;
+  display: inline-block;
+  min-height: 1.2em;
+  max-width: 100%;
+}
+
+.title-morph-text {
+  display: inline-block;
+  white-space: nowrap;
+  font-family: poppins;
+  font-weight: 700;
+  font-size: inherit;
+  line-height: 1.2;
+  color: whitesmoke;
+  position: relative;
+}
+
+/* Individual character spans injected by JS */
+.title-morph-wrap .char {
+  display: inline-block;
+  position: relative;
+  transform-origin: center bottom;
+}
+
+/* Glitch layers on the initial text */
+.title-morph-text.state-alias {
+  color: var(--accent, #c70039);
+  text-shadow:
+    0 0 8px var(--preloader-glow, rgba(199,0,57,0.8)),
+    0 0 20px var(--preloader-glow, rgba(199,0,57,0.5)),
+    0 0 40px var(--preloader-glow, rgba(199,0,57,0.3));
+  animation: titleGlitchPulse 1.8s ease-in-out infinite alternate;
+}
+
+/* "Pacoal" part — white, inherits glitch text-shadow */
+.title-morph-text.state-alias .alias-base {
+  color: whitesmoke;
+  -webkit-text-fill-color: whitesmoke;
+}
+
+/* "dev" part — accent color set inline by JS, keeps its own glow */
+.title-morph-text.state-alias .alias-dev {
+  -webkit-text-fill-color: unset;
+  text-shadow: inherit;
+}
+
+@keyframes titleGlitchPulse {
+  0%   { text-shadow: 0 0 8px var(--preloader-glow, rgba(199,0,57,0.8)),  0 0 20px var(--preloader-glow, rgba(199,0,57,0.5)),  2px 0 0 rgba(0,255,255,0.4), -2px 0 0 rgba(255,0,100,0.4); }
+  33%  { text-shadow: 0 0 12px var(--preloader-glow, rgba(199,0,57,1)),   0 0 30px var(--preloader-glow, rgba(199,0,57,0.7)), -2px 0 0 rgba(0,255,255,0.4),  2px 0 0 rgba(255,0,100,0.4); }
+  66%  { text-shadow: 0 0 6px var(--preloader-glow, rgba(199,0,57,0.6)),  0 0 16px var(--preloader-glow, rgba(199,0,57,0.4)),  1px 0 0 rgba(0,255,255,0.3), -1px 0 0 rgba(255,0,100,0.3); }
+  100% { text-shadow: 0 0 10px var(--preloader-glow, rgba(199,0,57,0.9)), 0 0 25px var(--preloader-glow, rgba(199,0,57,0.6)),  0px 0 0 transparent; }
+}
+
+/* Glitch flicker overlay (pseudo) */
+.title-morph-text.state-alias::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 2px;
+  top: 0;
+  color: rgba(0, 255, 255, 0.5);
+  clip-path: polygon(0 30%, 100% 30%, 100% 50%, 0 50%);
+  animation: glitchSlice1 2.4s infinite steps(1);
+}
+
+.title-morph-text.state-alias::after {
+  content: attr(data-text);
+  position: absolute;
+  left: -2px;
+  top: 0;
+  color: rgba(255, 0, 100, 0.5);
+  clip-path: polygon(0 60%, 100% 60%, 100% 80%, 0 80%);
+  animation: glitchSlice2 1.9s infinite steps(1);
+}
+
+@keyframes glitchSlice1 {
+  0%, 90%, 100% { transform: translateX(0); opacity: 0; }
+  92%  { transform: translateX(-3px); opacity: 1; }
+  94%  { transform: translateX(3px);  opacity: 1; }
+  96%  { transform: translateX(0);    opacity: 0; }
+}
+
+@keyframes glitchSlice2 {
+  0%, 85%, 100% { transform: translateX(0); opacity: 0; }
+  87%  { transform: translateX(3px);  opacity: 1; }
+  90%  { transform: translateX(-3px); opacity: 1; }
+  93%  { transform: translateX(0);    opacity: 0; }
+}
+
+/* Final state — real name */
+.title-morph-text.state-real {
+  color: whitesmoke;
+  text-shadow: none;
+}
+
+.title-morph-text.state-real .char-color {
+  color: var(--accent, #c70039);
+}
+
+/* Shockwave ring on transition */
+.title-shockwave {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 2px solid var(--accent, #c70039);
+  pointer-events: none;
+  opacity: 1;
+  animation: shockwaveRing 0.6s ease-out forwards;
+  z-index: 1;
+}
+
+@keyframes shockwaveRing {
+  0%   { transform: translate(-50%, -50%) scale(0); opacity: 0.8; }
+  100% { transform: translate(-50%, -50%) scale(6); opacity: 0; }
+}
+
+/* Particle burst dots */
+.title-particle {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent, #c70039);
+  pointer-events: none;
+  top: 50%;
+  left: 50%;
+}
+
+/* Shimmer sweep after morph completes */
+.title-morph-text.state-shimmer {
+  position: relative;
+  overflow: visible;
+}
+
+.title-morph-text.state-shimmer::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: -20%;
+  width: 40%;
+  height: 120%;
+  background: linear-gradient(
+    105deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.35) 50%,
+    transparent 70%
+  );
+  animation: shimmerSweep 1.1s ease-in-out forwards;
+  pointer-events: none;
+  z-index: 3;
+}
+
+@keyframes shimmerSweep {
+  0%   { left: -30%; }
+  100% { left: 110%; }
 }
 
 .header-content .secondline {
@@ -1700,6 +1882,18 @@ For devices with smaller width like mobile phone
     word-break: normal;
   }
 
+  .title-morph-wrap {
+    max-width: 100%;
+    overflow: visible;
+  }
+
+  .title-morph-text {
+    font-size: clamp(1.85rem, 9.5vw, 3.2rem);
+    white-space: normal;
+    word-break: break-word;
+    text-align: center;
+  }
+
   .header-content .firstline .split-text {
     white-space: nowrap;
     display: inline-block;
@@ -2210,6 +2404,24 @@ for tabs and large phones
     font-size: 40px;
   }
 
+  .header-content .firstline {
+    font-size: clamp(2rem, 7vw, 3.5rem);
+    text-align: center;
+    width: 100%;
+  }
+
+  .title-morph-wrap {
+    max-width: 100%;
+    overflow: visible;
+  }
+
+  .title-morph-text {
+    font-size: clamp(2rem, 7vw, 3.5rem);
+    white-space: normal;
+    word-break: break-word;
+    text-align: center;
+  }
+
   .header-image {
     float: right;
     height: auto;
@@ -2219,7 +2431,7 @@ for tabs and large phones
   .social-media-links {
     width: 100%;
     left: 0;
-    bottom: 0;
+    bottom: 55px;
     position: absolute;
     padding: 10px;
     height: auto;
@@ -2227,6 +2439,23 @@ for tabs and large phones
     flex-direction: row;
     align-items: center;
     justify-content: center;
+  }
+
+  .home-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: transparent !important;
+    padding: 10px;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .home-footer .footer-text {
+    font-size: 12px;
   }
 
   .header-content-box {

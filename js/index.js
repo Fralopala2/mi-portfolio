@@ -1,6 +1,6 @@
 const ProgressState = { value: 0 };
-const PRELOADER_DURATION = 4;
-const PRELOADER_HOLD = 0.5;
+const PRELOADER_DURATION = 2.0;
+const PRELOADER_HOLD = 0.2;
 
 let preloaderStarted = false;
 let preloaderPageLoaded = false;
@@ -56,12 +56,12 @@ const FinishPreloader = () => {
             scale: 0.97,
             opacity: 0,
             filter: "blur(8px)",
-            duration: 0.55,
+            duration: 0.35,
             ease: "power2.in"
         })
         .to(Preloader, {
             opacity: 0,
-            duration: 0.45,
+            duration: 0.30,
             ease: "power2.inOut",
             onComplete: () => {
                 Preloader.style.display = "none";
@@ -75,12 +75,7 @@ const FinishPreloader = () => {
                 introTl
                     .to('#header', { opacity: 1, filter: "url(#distortFilter) blur(0px)", scale: 1, duration: 3.0, ease: "power3.out" })
                     .to('#navigation-bar', { opacity: 1, y: 0, filter: "blur(0px)", duration: 1.5, ease: "power4.out" }, "-=2.5")
-                    .to('.split-char', {
-                        opacity: 1,
-                        duration: 0.1,
-                        stagger: 0.05,
-                        ease: "power2.inOut"
-                    }, "-=2.2")
+                    .add(() => { initTitleMorph(); }, "-=2.0")
                     .to('.header-content-box > div:not(.firstline)', {
                         opacity: 1,
                         y: 0,
@@ -101,6 +96,148 @@ const FinishPreloader = () => {
         }, "-=0.08");
 };
 
+/* ── Title Morph: Pacoaldev → Paco López Alarte ── */
+const initTitleMorph = () => {
+    const wrap = document.getElementById('titleMorph');
+    const textEl = document.getElementById('titleMorphText');
+    if (!wrap || !textEl) return;
+
+    const ALIAS = 'Pacoaldev';
+    const REAL  = 'Paco López Alarte';
+    // Which chars in REAL get the accent color
+    const COLOR_RANGE = [0, 4]; // "Paco" → indices 0-3
+
+    // ── Read active theme color at runtime ──
+    const getAccent = () => {
+        const val = getComputedStyle(document.documentElement)
+            .getPropertyValue('--accent').trim();
+        return val || '#c70039';
+    };
+
+    // ── Phase 1: render alias with glitch neon ──
+    // Render "Pacoal" normal + "dev" in accent color
+    const ALIAS_BASE = 'Pacoal';
+    const ALIAS_DEV  = 'dev';
+    textEl.setAttribute('data-text', ALIAS);
+    textEl.innerHTML =
+        `<span class="alias-base">${ALIAS_BASE}</span>` +
+        `<span class="alias-dev" id="aliasDev">${ALIAS_DEV}</span>`;
+    textEl.classList.add('state-alias');
+
+    // Apply accent color to "dev" inline so it respects the current theme
+    const devSpan = document.getElementById('aliasDev');
+    if (devSpan) devSpan.style.color = getAccent();
+
+    // Entrance: slide-up + fade
+    gsap.fromTo(textEl,
+        { opacity: 0, y: 40, filter: 'blur(12px)' },
+        { opacity: 1, y: 0, filter: 'blur(0px)', duration: 0.8, ease: 'power3.out' }
+    );
+
+    // ── Phase 2: after 2s, explode & morph into real name ──
+    gsap.delayedCall(2.0, () => {
+        const accent = getAccent();
+
+        // 1. Kill glitch
+        textEl.classList.remove('state-alias');
+        textEl.removeAttribute('data-text');
+
+        // 2. Shockwave ring
+        const ring = document.createElement('div');
+        ring.className = 'title-shockwave';
+        wrap.appendChild(ring);
+        setTimeout(() => ring.remove(), 700);
+
+        // 3. Particle burst — mix accent with complementary colors
+        const particles = [accent, accent, accent, '#ffffff', 'rgba(255,255,255,0.6)'];
+        for (let i = 0; i < 18; i++) {
+            const p = document.createElement('div');
+            p.className = 'title-particle';
+            p.style.background = particles[i % particles.length];
+            wrap.appendChild(p);
+            const angle = (i / 18) * Math.PI * 2;
+            const dist  = 60 + Math.random() * 80;
+            gsap.to(p, {
+                x: Math.cos(angle) * dist,
+                y: Math.sin(angle) * dist - 20,
+                opacity: 0,
+                scale: Math.random() * 1.5 + 0.5,
+                duration: 0.6 + Math.random() * 0.4,
+                ease: 'power2.out',
+                onComplete: () => p.remove()
+            });
+        }
+
+        // 4. Scatter current chars outward
+        const aliasChars = ALIAS.split('');
+        textEl.innerHTML = aliasChars.map(c => `<span class="char">${c === ' ' ? '&nbsp;' : c}</span>`).join('');
+        const charEls = textEl.querySelectorAll('.char');
+
+        charEls.forEach((ch, i) => {
+            const angle  = ((i / aliasChars.length) * Math.PI * 2) - Math.PI / 2;
+            const radius = 80 + Math.random() * 60;
+            gsap.to(ch, {
+                x: Math.cos(angle) * radius,
+                y: Math.sin(angle) * radius,
+                rotation: (Math.random() - 0.5) * 720,
+                opacity: 0,
+                scale: 0,
+                duration: 0.45,
+                ease: 'power3.in',
+                delay: i * 0.03
+            });
+        });
+
+        // 5. After scatter, rebuild as real name char-by-char
+        setTimeout(() => {
+            textEl.innerHTML = '';
+            textEl.classList.add('state-real');
+
+            const realChars = REAL.split('');
+            realChars.forEach((c, i) => {
+                const span = document.createElement('span');
+                span.className = 'char' + (i < COLOR_RANGE[1] ? ' char-color' : '');
+                span.textContent = c === ' ' ? '\u00A0' : c;
+                // Inline the accent color so it picks up the current theme value
+                if (i < COLOR_RANGE[1]) {
+                    span.style.color = accent;
+                }
+                textEl.appendChild(span);
+
+                gsap.fromTo(span,
+                    {
+                        opacity: 0,
+                        y: -50 + Math.random() * -40,
+                        x: (Math.random() - 0.5) * 60,
+                        rotation: (Math.random() - 0.5) * 180,
+                        scale: 0.2,
+                        filter: 'blur(6px)'
+                    },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        x: 0,
+                        rotation: 0,
+                        scale: 1,
+                        filter: 'blur(0px)',
+                        duration: 0.6,
+                        delay: 0.05 + i * 0.045,
+                        ease: 'back.out(1.8)'
+                    }
+                );
+            });
+
+            // 6. After all chars land, shimmer sweep
+            setTimeout(() => {
+                textEl.classList.add('state-shimmer');
+                setTimeout(() => textEl.classList.remove('state-shimmer'), 1400);
+            }, realChars.length * 45 + 300);
+
+        }, aliasChars.length * 30 + 500);
+    });
+};
+
+
 const TryCompletePreloader = () => {
     if (!preloaderPageLoaded || !preloaderProgressDone) return;
     gsap.delayedCall(PRELOADER_HOLD, FinishPreloader);
@@ -113,20 +250,6 @@ const StartPreloader = () => {
 
     document.documentElement.classList.add("preloader-active");
     document.body.classList.add("preloader-active");
-
-    // Splitting text into letters for .split-text elements
-    document.querySelectorAll('.split-text').forEach(el => {
-        const text = el.innerText;
-        el.innerHTML = '';
-        for (let i = 0; i < text.length; i++) {
-            let span = document.createElement('div');
-            span.innerText = text[i] === ' ' ? '\u00A0' : text[i];
-            span.style.display = 'inline-block';
-            span.style.opacity = '0';
-            span.classList.add('split-char');
-            el.appendChild(span);
-        }
-    });
 
     // Preparar elementos para animación desde el principio
     gsap.set('#header', {display:"block", filter:"url(#distortFilter) blur(40px)", scale:1.05, opacity:0});

@@ -1,4 +1,6 @@
 :root {
+    --accent:   #00909e;
+    --accent-2: #00909e;
     --preloader-accent-1: #2dd4bf;
     --preloader-accent-2: #0f766e;
     --preloader-glow: rgba(15, 118, 110, 0.38);

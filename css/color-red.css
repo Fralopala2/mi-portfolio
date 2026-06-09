@@ -1,7 +1,9 @@
 :root {
+    --accent:   #c70039;
+    --accent-2: #c70039;
     --preloader-accent-1: #fb7185;
-    --preloader-accent-2: #e11d48;
-    --preloader-glow: rgba(225, 29, 72, 0.38);
+    --preloader-accent-2: #c70039;
+    --preloader-glow: rgba(199, 0, 57, 0.38);
 }
 
 ::-webkit-scrollbar{

@@ -7,7 +7,7 @@ const translations = {
 
         "header-tagline": "[ Backend · Distributed Systems · AI Integration ]",
         "i-am-a": "I am a",
-        "txt-rotate": '[ " BACKEND DEVELOPER.", " JAVA & SPRING DEV.", " CREATOR." ]',
+        "txt-rotate": '[ " BACKEND DEVELOPER.", " JAVA & SPRING DEV.", " API BUILDER." ]',
 
         "about-title": "About <span class='color'>Me</span>",
         "about-subtitle": "My <span class='color'>Introduction</span>",
@@ -83,7 +83,7 @@ const translations = {
 
         "header-tagline": "[ Backend · Sistemas Distribuidos · Integración IA ]",
         "i-am-a": "Soy un",
-        "txt-rotate": '[ " DESARROLLADOR BACKEND.", " JAVA & SPRING DEV.", " CREADOR." ]',
+        "txt-rotate": '[ " DESARROLLADOR BACKEND.", " JAVA & SPRING DEV.", " CONSTRUCTOR DE API." ]',
 
         "about-title": "Sobre <span class='color'>Mí</span>",
         "about-subtitle": "Mi <span class='color'>Introducción</span>",
