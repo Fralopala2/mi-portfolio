@@ -390,6 +390,12 @@ html.preloader-active::-webkit-scrollbar {
   transform-origin: center bottom;
 }
 
+/* Word wrapper — keeps each word unbreakable on mobile */
+.title-morph-wrap .char-word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
 /* Glitch layers on the initial text */
 .title-morph-text.state-alias {
   color: var(--accent, #c70039);

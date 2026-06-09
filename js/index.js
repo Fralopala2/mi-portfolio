@@ -189,49 +189,73 @@ const initTitleMorph = () => {
         });
 
         // 5. After scatter, rebuild as real name char-by-char
+        // Characters are wrapped in word-groups (white-space:nowrap) so the
+        // browser only breaks between words, never mid-word or mid-char.
         setTimeout(() => {
             textEl.innerHTML = '';
             textEl.classList.add('state-real');
 
-            const realChars = REAL.split('');
-            realChars.forEach((c, i) => {
-                const span = document.createElement('span');
-                span.className = 'char' + (i < COLOR_RANGE[1] ? ' char-color' : '');
-                span.textContent = c === ' ' ? '\u00A0' : c;
-                // Inline the accent color so it picks up the current theme value
-                if (i < COLOR_RANGE[1]) {
-                    span.style.color = accent;
-                }
-                textEl.appendChild(span);
+            // Split REAL into words, track global char index for color range
+            const words = REAL.split(' ');
+            let globalIdx = 0;
 
-                gsap.fromTo(span,
-                    {
-                        opacity: 0,
-                        y: -50 + Math.random() * -40,
-                        x: (Math.random() - 0.5) * 60,
-                        rotation: (Math.random() - 0.5) * 180,
-                        scale: 0.2,
-                        filter: 'blur(6px)'
-                    },
-                    {
-                        opacity: 1,
-                        y: 0,
-                        x: 0,
-                        rotation: 0,
-                        scale: 1,
-                        filter: 'blur(0px)',
-                        duration: 0.6,
-                        delay: 0.05 + i * 0.045,
-                        ease: 'back.out(1.8)'
+            words.forEach((word, wIdx) => {
+                // Wrapper keeps the word unbreakable
+                const wordWrap = document.createElement('span');
+                wordWrap.className = 'char-word';
+
+                word.split('').forEach(c => {
+                    const i = globalIdx;
+                    const span = document.createElement('span');
+                    span.className = 'char' + (i < COLOR_RANGE[1] ? ' char-color' : '');
+                    span.textContent = c;
+                    if (i < COLOR_RANGE[1]) {
+                        span.style.color = accent;
                     }
-                );
+                    wordWrap.appendChild(span);
+
+                    gsap.fromTo(span,
+                        {
+                            opacity: 0,
+                            y: -50 + Math.random() * -40,
+                            x: (Math.random() - 0.5) * 60,
+                            rotation: (Math.random() - 0.5) * 180,
+                            scale: 0.2,
+                            filter: 'blur(6px)'
+                        },
+                        {
+                            opacity: 1,
+                            y: 0,
+                            x: 0,
+                            rotation: 0,
+                            scale: 1,
+                            filter: 'blur(0px)',
+                            duration: 0.6,
+                            delay: 0.05 + i * 0.045,
+                            ease: 'back.out(1.8)'
+                        }
+                    );
+                    globalIdx++;
+                });
+
+                textEl.appendChild(wordWrap);
+
+                // Add a space span between words (not at the end)
+                if (wIdx < words.length - 1) {
+                    const space = document.createElement('span');
+                    space.className = 'char char-space';
+                    space.textContent = '\u00A0';
+                    textEl.appendChild(space);
+                    globalIdx++; // count the space in global index
+                }
             });
 
             // 6. After all chars land, shimmer sweep
+            const totalChars = REAL.replace(/ /g, '').length;
             setTimeout(() => {
                 textEl.classList.add('state-shimmer');
                 setTimeout(() => textEl.classList.remove('state-shimmer'), 1400);
-            }, realChars.length * 45 + 300);
+            }, totalChars * 45 + 300);
 
         }, aliasChars.length * 30 + 500);
     });
