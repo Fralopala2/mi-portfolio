@@ -73,7 +73,9 @@ const translations = {
         "info-loc": "Location",
         "info-call": "Call",
         "info-email": "Email",
-        "btn-submit": "Submit"
+        "btn-submit": "Submit",
+        "privacy-policy": "Privacy Policy",
+        "legal-notice": "Legal Notice"
     },
     "es": {
         "nav-home": "INICIO",
@@ -149,7 +151,9 @@ const translations = {
         "info-loc": "Ubicación",
         "info-call": "Llamar",
         "info-email": "Correo",
-        "btn-submit": "Enviar"
+        "btn-submit": "Enviar",
+        "privacy-policy": "Política de Privacidad",
+        "legal-notice": "Aviso Legal"
     }
 };
 

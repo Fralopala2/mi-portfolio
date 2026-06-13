@@ -4,7 +4,7 @@
 
 /* Default accent — overridden by each color-*.css theme */
 :root {
-  --accent:   #c70039;
+  --accent: #c70039;
   --accent-2: #c70039;
   --preloader-accent-1: #fb7185;
   --preloader-accent-2: #c70039;
@@ -86,11 +86,15 @@ body.preloader-active {
 
 /* Hide scrollbar gutter during preload */
 html.preloader-active {
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE/Edge */
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE/Edge */
 }
+
 html.preloader-active::-webkit-scrollbar {
-  display: none; /* Chrome/Safari */
+  display: none;
+  /* Chrome/Safari */
 }
 
 #header {
@@ -400,9 +404,9 @@ html.preloader-active::-webkit-scrollbar {
 .title-morph-text.state-alias {
   color: var(--accent, #c70039);
   text-shadow:
-    0 0 8px var(--preloader-glow, rgba(199,0,57,0.8)),
-    0 0 20px var(--preloader-glow, rgba(199,0,57,0.5)),
-    0 0 40px var(--preloader-glow, rgba(199,0,57,0.3));
+    0 0 8px var(--preloader-glow, rgba(199, 0, 57, 0.8)),
+    0 0 20px var(--preloader-glow, rgba(199, 0, 57, 0.5)),
+    0 0 40px var(--preloader-glow, rgba(199, 0, 57, 0.3));
   animation: titleGlitchPulse 1.8s ease-in-out infinite alternate;
 }
 
@@ -419,10 +423,21 @@ html.preloader-active::-webkit-scrollbar {
 }
 
 @keyframes titleGlitchPulse {
-  0%   { text-shadow: 0 0 8px var(--preloader-glow, rgba(199,0,57,0.8)),  0 0 20px var(--preloader-glow, rgba(199,0,57,0.5)),  2px 0 0 rgba(0,255,255,0.4), -2px 0 0 rgba(255,0,100,0.4); }
-  33%  { text-shadow: 0 0 12px var(--preloader-glow, rgba(199,0,57,1)),   0 0 30px var(--preloader-glow, rgba(199,0,57,0.7)), -2px 0 0 rgba(0,255,255,0.4),  2px 0 0 rgba(255,0,100,0.4); }
-  66%  { text-shadow: 0 0 6px var(--preloader-glow, rgba(199,0,57,0.6)),  0 0 16px var(--preloader-glow, rgba(199,0,57,0.4)),  1px 0 0 rgba(0,255,255,0.3), -1px 0 0 rgba(255,0,100,0.3); }
-  100% { text-shadow: 0 0 10px var(--preloader-glow, rgba(199,0,57,0.9)), 0 0 25px var(--preloader-glow, rgba(199,0,57,0.6)),  0px 0 0 transparent; }
+  0% {
+    text-shadow: 0 0 8px var(--preloader-glow, rgba(199, 0, 57, 0.8)), 0 0 20px var(--preloader-glow, rgba(199, 0, 57, 0.5)), 2px 0 0 rgba(0, 255, 255, 0.4), -2px 0 0 rgba(255, 0, 100, 0.4);
+  }
+
+  33% {
+    text-shadow: 0 0 12px var(--preloader-glow, rgba(199, 0, 57, 1)), 0 0 30px var(--preloader-glow, rgba(199, 0, 57, 0.7)), -2px 0 0 rgba(0, 255, 255, 0.4), 2px 0 0 rgba(255, 0, 100, 0.4);
+  }
+
+  66% {
+    text-shadow: 0 0 6px var(--preloader-glow, rgba(199, 0, 57, 0.6)), 0 0 16px var(--preloader-glow, rgba(199, 0, 57, 0.4)), 1px 0 0 rgba(0, 255, 255, 0.3), -1px 0 0 rgba(255, 0, 100, 0.3);
+  }
+
+  100% {
+    text-shadow: 0 0 10px var(--preloader-glow, rgba(199, 0, 57, 0.9)), 0 0 25px var(--preloader-glow, rgba(199, 0, 57, 0.6)), 0px 0 0 transparent;
+  }
 }
 
 /* Glitch flicker overlay (pseudo) */
@@ -447,17 +462,53 @@ html.preloader-active::-webkit-scrollbar {
 }
 
 @keyframes glitchSlice1 {
-  0%, 90%, 100% { transform: translateX(0); opacity: 0; }
-  92%  { transform: translateX(-3px); opacity: 1; }
-  94%  { transform: translateX(3px);  opacity: 1; }
-  96%  { transform: translateX(0);    opacity: 0; }
+
+  0%,
+  90%,
+  100% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+
+  92% {
+    transform: translateX(-3px);
+    opacity: 1;
+  }
+
+  94% {
+    transform: translateX(3px);
+    opacity: 1;
+  }
+
+  96% {
+    transform: translateX(0);
+    opacity: 0;
+  }
 }
 
 @keyframes glitchSlice2 {
-  0%, 85%, 100% { transform: translateX(0); opacity: 0; }
-  87%  { transform: translateX(3px);  opacity: 1; }
-  90%  { transform: translateX(-3px); opacity: 1; }
-  93%  { transform: translateX(0);    opacity: 0; }
+
+  0%,
+  85%,
+  100% {
+    transform: translateX(0);
+    opacity: 0;
+  }
+
+  87% {
+    transform: translateX(3px);
+    opacity: 1;
+  }
+
+  90% {
+    transform: translateX(-3px);
+    opacity: 1;
+  }
+
+  93% {
+    transform: translateX(0);
+    opacity: 0;
+  }
 }
 
 /* Final state — real name */
@@ -487,8 +538,15 @@ html.preloader-active::-webkit-scrollbar {
 }
 
 @keyframes shockwaveRing {
-  0%   { transform: translate(-50%, -50%) scale(0); opacity: 0.8; }
-  100% { transform: translate(-50%, -50%) scale(6); opacity: 0; }
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(6);
+    opacity: 0;
+  }
 }
 
 /* Particle burst dots */
@@ -516,20 +574,23 @@ html.preloader-active::-webkit-scrollbar {
   left: -20%;
   width: 40%;
   height: 120%;
-  background: linear-gradient(
-    105deg,
-    transparent 30%,
-    rgba(255, 255, 255, 0.35) 50%,
-    transparent 70%
-  );
+  background: linear-gradient(105deg,
+      transparent 30%,
+      rgba(255, 255, 255, 0.35) 50%,
+      transparent 70%);
   animation: shimmerSweep 1.1s ease-in-out forwards;
   pointer-events: none;
   z-index: 3;
 }
 
 @keyframes shimmerSweep {
-  0%   { left: -30%; }
-  100% { left: 110%; }
+  0% {
+    left: -30%;
+  }
+
+  100% {
+    left: 110%;
+  }
 }
 
 .header-content .secondline {
@@ -1668,7 +1729,7 @@ form button:hover {
   flex-direction: row;
   position: fixed;
   right: -150px;
-  top: 40%;
+  top: 100px;
   z-index: 4;
   color: black;
   transition: all 0.4s ease;
@@ -1680,9 +1741,9 @@ form button:hover {
 }
 
 .color-panel {
-  height: 45px;
+  height: 35px;
   cursor: pointer;
-  width: 45px;
+  width: 35px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1692,8 +1753,8 @@ form button:hover {
 }
 
 .color-panel img {
-  height: 40px;
-  width: 40px;
+  height: 35px;
+  width: 35px;
   padding: 2px;
   animation: rotate 2s linear infinite;
 }
@@ -2344,9 +2405,11 @@ For devices with smaller width like mobile phone
     align-items: center;
     gap: 15px;
   }
+
   .cv a {
     width: 100%;
   }
+
   .cv a button {
     width: 100%;
     padding: 15px;
@@ -2384,7 +2447,8 @@ For devices with smaller width like mobile phone
     width: 100% !important;
   }
 
-  .portfolio-btn, .portfolio-btn button {
+  .portfolio-btn,
+  .portfolio-btn button {
     width: 100% !important;
     text-align: center;
   }
@@ -3250,6 +3314,7 @@ for tabs and large phones
   opacity: 1;
   font-weight: 600;
 }
+
 :root {
   --colorBg: #171717;
   --colorBgSoft: #202020;
@@ -3278,10 +3343,7 @@ for tabs and large phones
   max-height: 100dvh;
   max-height: 100svh;
   padding:
-    max(10px, env(safe-area-inset-top))
-    max(14px, env(safe-area-inset-right))
-    max(10px, env(safe-area-inset-bottom))
-    max(14px, env(safe-area-inset-left));
+    max(10px, env(safe-area-inset-top)) max(14px, env(safe-area-inset-right)) max(10px, env(safe-area-inset-bottom)) max(14px, env(safe-area-inset-left));
   background:
     radial-gradient(ellipse 80% 50% at 50% -10%, var(--preloader-glow), transparent 55%),
     radial-gradient(circle at 15% 85%, rgba(255, 255, 255, 0.04), transparent 35%),
@@ -3311,8 +3373,13 @@ for tabs and large phones
 }
 
 @keyframes preloader-grid-drift {
-  0% { transform: translate(0, 0) rotate(0deg); }
-  100% { transform: translate(48px, 48px) rotate(1deg); }
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  100% {
+    transform: translate(48px, 48px) rotate(1deg);
+  }
 }
 
 .preloader-orb {
@@ -3350,20 +3417,25 @@ for tabs and large phones
 }
 
 @keyframes preloader-orb-float {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(18px, -24px) scale(1.08); }
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  50% {
+    transform: translate(18px, -24px) scale(1.08);
+  }
 }
 
 .preloader-scanline {
   position: absolute;
   inset: 0;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 2px,
-    rgba(255, 255, 255, 0.015) 2px,
-    rgba(255, 255, 255, 0.015) 4px
-  );
+  background: repeating-linear-gradient(0deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 255, 255, 0.015) 2px,
+      rgba(255, 255, 255, 0.015) 4px);
   opacity: 0.35;
 }
 
@@ -3392,6 +3464,7 @@ for tabs and large phones
     height: 120px;
     opacity: 0.9;
   }
+
   100% {
     width: 140vw;
     height: 140vw;
@@ -3460,13 +3533,11 @@ for tabs and large phones
   position: absolute;
   inset: -2px;
   border-radius: 50%;
-  background: conic-gradient(
-    from 0deg,
-    transparent 0deg,
-    var(--preloader-accent-1) 55deg,
-    var(--preloader-accent-2) 110deg,
-    transparent 180deg
-  );
+  background: conic-gradient(from 0deg,
+      transparent 0deg,
+      var(--preloader-accent-1) 55deg,
+      var(--preloader-accent-2) 110deg,
+      transparent 180deg);
   mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2px));
   -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2px));
   opacity: 0.9;
@@ -3474,7 +3545,9 @@ for tabs and large phones
 }
 
 @keyframes preloader-arc-spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .preloader-logo-ring--inner {
@@ -3525,13 +3598,29 @@ for tabs and large phones
 }
 
 @keyframes preloader-ring-pulse {
-  0%, 100% { transform: scale(1); opacity: 0.45; }
-  50% { transform: scale(1.04); opacity: 1; }
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.45;
+  }
+
+  50% {
+    transform: scale(1.04);
+    opacity: 1;
+  }
 }
 
 @keyframes preloader-orbit-wobble {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.03); }
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.03);
+  }
 }
 
 .preloader-logo {
@@ -3623,18 +3712,21 @@ for tabs and large phones
 .progressFill-shine {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.45) 50%,
-    transparent 100%
-  );
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.45) 50%,
+      transparent 100%);
   animation: preloader-shine 1.8s ease-in-out infinite;
 }
 
 @keyframes preloader-shine {
-  0% { transform: translateX(-120%); }
-  100% { transform: translateX(220%); }
+  0% {
+    transform: translateX(-120%);
+  }
+
+  100% {
+    transform: translateX(220%);
+  }
 }
 
 .preloader-steps {
@@ -3724,10 +3816,7 @@ for tabs and large phones
   .preloader {
     align-items: safe center;
     padding:
-      max(12px, env(safe-area-inset-top))
-      max(12px, env(safe-area-inset-right))
-      max(12px, env(safe-area-inset-bottom))
-      max(12px, env(safe-area-inset-left));
+      max(12px, env(safe-area-inset-top)) max(12px, env(safe-area-inset-right)) max(12px, env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left));
   }
 
   .preloader-card {
@@ -3919,13 +4008,51 @@ for tabs and large phones
 }
 
 @keyframes flicker {
-  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+
+  0%,
+  19%,
+  21%,
+  23%,
+  25%,
+  54%,
+  56%,
+  100% {
     opacity: 1;
   }
-  20%, 22%, 24%, 55% {
+
+  20%,
+  22%,
+  24%,
+  55% {
     opacity: 0;
   }
 }
+
 .flicker-line {
   animation: flicker 4s infinite alternate;
+}
+
+/* Styling for when video is hidden in the about section */
+.about-main.video-hidden .about-img {
+  display: none !important;
+}
+
+.about-main.video-hidden {
+  justify-content: center;
+}
+
+.about-main.video-hidden .about-first-paragraph {
+  width: 85%;
+  margin-right: 0;
+  max-width: 1000px;
+}
+
+@media only screen and (max-width: 768px) {
+  .about-main.video-hidden .about-first-paragraph {
+    width: 95%;
+  }
+}
+
+.cv a button {
+  border-radius: 40px !important;
 }
