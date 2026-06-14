@@ -126,7 +126,7 @@ const initTitleMorph = () => {
 
     // Apply accent color to "dev" inline so it respects the current theme
     const devSpan = document.getElementById('aliasDev');
-    if (devSpan) devSpan.style.color = getAccent();
+    if (devSpan) devSpan.style.color = 'var(--accent)';
 
     // Entrance: slide-up + fade
     gsap.fromTo(textEl,
@@ -210,7 +210,7 @@ const initTitleMorph = () => {
                     span.className = 'char' + (i < COLOR_RANGE[1] ? ' char-color' : '');
                     span.textContent = c;
                     if (i < COLOR_RANGE[1]) {
-                        span.style.color = accent;
+                        span.style.color = 'var(--accent)';
                     }
                     wordWrap.appendChild(span);
 

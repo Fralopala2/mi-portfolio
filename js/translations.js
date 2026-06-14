@@ -16,11 +16,11 @@ const translations = {
         "btn-cv": "Download CV",
 
         "exp-title": "Professional <span class='color'>Experience</span>",
-        "exp1-title": "IT Department Manager",
+        "exp1-title": "IT Department <span class='color'>Manager</span>",
         "exp1-desc": "10 years leading IT operations, infrastructure, vendor management and business-critical systems.",
-        "exp2-title": "eCommerce Technical Specialist",
+        "exp2-title": "eCommerce Technical <span class='color'>Specialist</span>",
         "exp2-desc": "Managing payment gateways, web platforms, landing pages, dashboards and automation workflows.",
-        "exp3-title": "AI-Powered Software Engineering",
+        "exp3-title": "AI-Powered Software <span class='color'>Engineering</span>",
         "exp3-desc": "Building software, APIs, developer tools, automations and cloud-native solutions using AI.",
 
         "services-title": "My <span class='color'>Services</span>",
@@ -49,7 +49,7 @@ const translations = {
         "portfolio-title": "<span class='color'>My</span> Portfolio",
         "portfolio-subtitle": "Some Of My <span class='color'>Works</span>",
 
-        "port1-title": "Opencode-mcp",
+        "port1-title": "Opencode chat panel",
         "port1-desc": "Bringing AI-native workflows directly into the IDE through local LLMs, agents, skills and MCP integrations.",
 
         "port2-title": "Epsylon Control Center",
@@ -102,11 +102,11 @@ const translations = {
         "btn-cv": "Descargar CV",
 
         "exp-title": "Experiencia <span class='color'>Profesional</span>",
-        "exp1-title": "Responsable de Departamento de TI",
+        "exp1-title": "Responsable de Departamento de <span class='color'>TI</span>",
         "exp1-desc": "10 años liderando operaciones de TI, infraestructura, gestión de proveedores y sistemas críticos.",
-        "exp2-title": "Especialista Técnico de eCommerce",
+        "exp2-title": "Especialista Técnico de <span class='color'>eCommerce</span>",
         "exp2-desc": "Gestión de pasarelas de pago, plataformas web, páginas de destino, paneles y flujos de trabajo de automatización.",
-        "exp3-title": "Ingeniería de Software Impulsada por IA",
+        "exp3-title": "Ingeniería de Software Impulsada por <span class='color'>IA</span>",
         "exp3-desc": "Creación de software, APIs, herramientas de desarrollo, automatizaciones y soluciones nativas de la nube usando IA.",
 
         "services-title": "Mis <span class='color'>Servicios</span>",
@@ -135,7 +135,7 @@ const translations = {
         "portfolio-title": "<span class='color'>Mi</span> Portfolio",
         "portfolio-subtitle": "Algunos de Mis <span class='color'>Trabajos</span>",
 
-        "port1-title": "Opencode-mcp",
+        "port1-title": "Opencode chat panel",
         "port1-desc": "Llevando flujos de trabajo nativos de IA directamente al IDE mediante LLMs locales, agentes, habilidades e integraciones MCP.",
 
         "port2-title": "Centro de Control Epsylon",
@@ -170,6 +170,7 @@ const translations = {
         "info-email": "Correo",
         "btn-submit": "Enviar",
         "privacy-policy": "Política de Privacidad",
+        "legal-notice": "Aviso Legal"
     }
 };
 
@@ -205,6 +206,13 @@ function setLanguage(lang) {
                 // If it's a navigation link with data-text (used for hover effect), update that too
                 if (el.hasAttribute('data-text')) {
                     el.setAttribute('data-text', translations[lang][key]);
+                }
+
+                // Update href for policy and legal notice
+                if (key === 'privacy-policy') {
+                    el.setAttribute('href', lang === 'es' ? 'privacy-policy-es.html' : 'privacy-policy.html');
+                } else if (key === 'legal-notice') {
+                    el.setAttribute('href', lang === 'es' ? 'legal-notice-es.html' : 'legal-notice.html');
                 }
             }
         }

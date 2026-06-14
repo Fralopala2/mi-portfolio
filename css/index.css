@@ -885,10 +885,10 @@ html.preloader-active::-webkit-scrollbar {
 
 .cv {
   display: flex;
-  gap: 15px;
+  gap: 12px;
   margin-top: 30px;
   justify-content: flex-start;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 .about-main {
@@ -1006,20 +1006,20 @@ html.preloader-active::-webkit-scrollbar {
 }
 
 .cv {
-  padding-top: 40px;
+  padding-top: 30px;
   display: flex;
-  gap: 25px;
-  flex-wrap: wrap;
+  gap: 12px;
+  flex-wrap: nowrap;
   justify-content: flex-start;
 }
 
 .cv a button {
   background: #c70039;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 14px 32px;
+  padding: 10px 20px;
   color: whitesmoke;
   outline: none;
-  font-size: 16px;
+  font-size: 14px;
   font-family: poppins, sans-serif;
   border-radius: 40px;
   font-weight: 600;
@@ -1027,6 +1027,7 @@ html.preloader-active::-webkit-scrollbar {
   position: relative;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  white-space: nowrap;
 }
 
 .cv a button:hover {
@@ -2678,16 +2679,17 @@ for tabs and large phones
 
   .cv a button {
     border: none;
-    padding: 20px 30px;
+    padding: 10px 20px;
     color: whitesmoke;
     outline: none;
-    font-size: 20px;
+    font-size: 14px;
     font-family: aileron;
     border-radius: 8px;
     font-weight: 400;
     cursor: pointer;
     position: relative;
     transition: all 0.4s ease;
+    white-space: nowrap;
   }
 
   .service {
@@ -2984,16 +2986,17 @@ for tabs and large phones
   .cv a button {
     background: transparent;
     border: none;
-    padding: 25px 35px;
+    padding: 12px 24px;
     color: whitesmoke;
     outline: none;
-    font-size: 30px;
+    font-size: 15px;
     font-family: aileron;
     border-radius: 4px;
     font-weight: 400;
     cursor: pointer;
     position: relative;
     transition: all 0.4s ease;
+    white-space: nowrap;
   }
 
   .service {
