@@ -134,6 +134,16 @@
   z-index: 10;
 }
 
+.skill-item img[src*="images/skills/"] {
+    filter: brightness(0) invert(1);
+}
+
+.color-changer .skill-item img[src*="images/skills/"] {
+    filter: none;
+    stroke: currentColor;
+    fill: currentColor;
+}
+
 .skill-item:hover span {
   opacity: 1;
   transform: translateY(0);

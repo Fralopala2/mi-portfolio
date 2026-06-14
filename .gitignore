@@ -20,3 +20,5 @@ venv/
 
 # Offline package (built artifact)
 offline-package-ready/
+mejoras.md
+*.zip

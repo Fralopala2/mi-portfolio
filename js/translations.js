@@ -36,6 +36,7 @@ const translations = {
         "skill-cat-db": "Database",
         "skill-cat-tools": "Tools",
         "skill-cat-frontend": "Complementary Frontend Skills",
+		"skill-cat-ai": "AI & Agentic Engineering",
 
         "portfolio-title": "<span class='color'>My</span> Portfolio",
         "portfolio-subtitle": "Some Of My <span class='color'>Works</span>",
@@ -114,7 +115,8 @@ const translations = {
         "skill-cat-db": "Bases de Datos",
         "skill-cat-tools": "Herramientas",
         "skill-cat-frontend": "Habilidades Frontend Complementarias",
-
+		"skill-cat-ai": "Ingeniería de IA y Agentes",
+			
         "portfolio-title": "<span class='color'>Mi</span> Portfolio",
         "portfolio-subtitle": "Algunos de Mis <span class='color'>Trabajos</span>",
 
