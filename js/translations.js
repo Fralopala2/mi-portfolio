@@ -7,7 +7,7 @@ const translations = {
 
         "header-tagline": "[ AI · Automation · DevOps · APIs · Cloud Infrastructure ]",
         "i-am-a": "I am a",
-        "txt-rotate": '[ "AI-NATIVE ENGINEER.", "SOFTWARE & INFRASTRUCTURE BUILDER.", "DEVOPS & AUTOMATION SPECIALIST.", "API & SYSTEMS ARCHITECT." ]',
+        "txt-rotate": '[ "AI-NATIVE ENGINEER.", "SOFTWARE & INFRASTRUCTURE BUILDER.", "AUTOMATION SPECIALIST.", "API & SYSTEMS ARCHITECT." ]',
 
         "about-title": "About <span class='color'>Me</span>",
         "about-subtitle": "My <span class='color'>Introduction</span>",
@@ -28,7 +28,7 @@ const translations = {
         "srv1-title": "AI-Powered Development",
         "srv1-desc": "Building software faster using AI-assisted workflows, MCP servers, agents and custom developer tooling.",
         "srv2-title": "DevOps & Infrastructure",
-        "srv2-desc": "Cloud infrastructure, containers, CI/CD pipelines and deployment automation.",
+        "srv2-desc": "Cloud infrastructure, CI/CD pipelines and deployment automation.",
         "srv3-title": "API & System Integration",
         "srv3-desc": "Connecting platforms, services, payment systems and business applications.",
         "srv4-title": "Business Automation",
@@ -93,8 +93,7 @@ const translations = {
         "nav-contact": "CONTACTO",
 
         "header-tagline": "[ IA · Automatización · DevOps · APIs · Infraestructura Cloud ]",
-        "i-am-a": "Soy un",
-        "txt-rotate": '[ "INGENIERO NATIVO EN IA.", "CONSTRUCTOR DE SOFTWARE E INFRAESTRUCTURA.", "ESPECIALISTA EN DEVOPS Y AUTOMATIZACIÓN.", "ARQUITECTO DE APIS Y SISTEMAS." ]',
+        "txt-rotate": '[ "INGENIERO NATIVO EN IA.", "CONSTRUCTOR DE SOFTWARE E INFRAESTRUCTURA.", "ESPECIALISTA EN AUTOMATIZACIÓN.", "ARQUITECTO DE APIS Y SISTEMAS." ]',
 
         "about-title": "Sobre <span class='color'>Mí</span>",
         "about-subtitle": "Mi <span class='color'>Introducción</span>",
@@ -115,7 +114,7 @@ const translations = {
         "srv1-title": "Desarrollo Impulsado por IA",
         "srv1-desc": "Construcción de software más rápida utilizando flujos de trabajo asistidos por IA, servidores MCP, agentes y herramientas personalizadas.",
         "srv2-title": "DevOps e Infraestructura",
-        "srv2-desc": "Infraestructura en la nube, contenedores, pipelines de CI/CD y automatización de despliegues.",
+        "srv2-desc": "Infraestructura en la nube, pipelines de CI/CD y automatización de despliegues.",
         "srv3-title": "Integración de APIs y Sistemas",
         "srv3-desc": "Conexión de plataformas, servicios, sistemas de pago y aplicaciones empresariales.",
         "srv4-title": "Automatización de Negocios",

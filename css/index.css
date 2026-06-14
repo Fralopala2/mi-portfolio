@@ -635,7 +635,7 @@ html.preloader-active::-webkit-scrollbar {
 /* Footer link styles: make them white and remove underline */
 .footer .footer-text .footer-links a,
 .footer-links a {
-  color: whitesmoke;
+  color: whitesmoke !important;
   text-decoration: none;
   opacity: 0.95;
   margin: 0 6px;
@@ -1706,7 +1706,7 @@ form button:hover {
 .footer .footer-text {
   position: relative;
   display: inline;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 400;
   opacity: 1;
 }

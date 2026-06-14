@@ -37,34 +37,34 @@
   padding: 30px;
   flex: 1 1 300px;
   max-width: 400px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
-  border: 1px solid rgba(255,255,255,0.03);
+  border: 1px solid rgba(255, 255, 255, 0.03);
   position: relative;
   overflow: hidden;
 }
 
 .skill-category::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: currentColor;
-    color: inherit;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.4s ease;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: currentColor;
+  color: inherit;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
 }
 
 .skill-category:hover::before {
-    transform: scaleX(1);
+  transform: scaleX(1);
 }
 
 .skill-category:hover {
   transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
   background: #1e1e1e;
   border-top-color: currentColor;
 }
@@ -79,7 +79,7 @@
   letter-spacing: 1px;
   position: relative;
   padding-bottom: 15px;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .skill-grid {
@@ -108,12 +108,12 @@
   width: 55px;
   height: 55px;
   object-fit: contain;
-  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
   transition: filter 0.3s ease;
 }
 
 .skill-item:hover img {
-    filter: drop-shadow(0 6px 12px rgba(255, 255, 255, 0.2));
+  filter: drop-shadow(0 6px 12px rgba(255, 255, 255, 0.2));
 }
 
 .skill-item span {
@@ -128,13 +128,13 @@
   bottom: -20px;
   width: 150%;
   pointer-events: none;
-  background: rgba(0,0,0,0.8);
+  background: rgba(0, 0, 0, 0.8);
   padding: 2px 6px;
   border-radius: 4px;
   z-index: 10;
 }
 
-.skill-item img[src*="images/skills/"] {
+/* .skill-item img[src*="images/skills/"] {
     filter: brightness(0) invert(1);
 }
 
@@ -142,7 +142,7 @@
     filter: none;
     stroke: currentColor;
     fill: currentColor;
-}
+} */
 
 .skill-item:hover span {
   opacity: 1;
@@ -153,6 +153,7 @@
   .skills-container {
     gap: 20px;
   }
+
   .skill-category {
     flex: 1 1 100%;
     max-width: 100%;
