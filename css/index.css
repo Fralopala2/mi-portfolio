@@ -749,48 +749,24 @@ html.preloader-active::-webkit-scrollbar {
   transform: scale(1.1);
 }
 
-#breaker {
-  height: 100vh;
-  width: 100%;
-  /* Changed from 200% to 100% */
-  background-color: #c70039;
-  opacity: 1;
-  animation: breakeranimate 2s linear;
-  display: none;
-  transition: all 0.4s ease;
-  border-radius: 5px;
-  z-index: 10;
+.transition-overlay {
   position: fixed;
+  top: 0;
   left: 0;
-  /* Added left: 0 to ensure it starts from the left edge */
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  display: flex;
+  pointer-events: none;
 }
 
-@keyframes breakeranimate {
-  0% {
-    transform: translateX(-100%);
-  }
-
-  50% {
-    transform: translateX(0%);
-  }
-
-  100% {
-    transform: translateX(100%);
-  }
-}
-
-@-webkit-keyframes breakeranimate {
-  0% {
-    transform: translateX(-100%);
-  }
-
-  50% {
-    transform: translateX(0%);
-  }
-
-  100% {
-    transform: translateX(100%);
-  }
+.transition-stripe {
+  flex: 1;
+  height: 100%;
+  background: var(--accent, #c70039);
+  transform: scaleY(0);
+  transform-origin: top;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
 .color {

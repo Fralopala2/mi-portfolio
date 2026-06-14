@@ -418,64 +418,134 @@ $(function(){
       };
 })
 $(function(){
+    const switchPage = (targetPageId) => {
+        // Close nav overlay
+        gsap.to('#navigation-content', 0, { display: "none" });
+        gsap.to('#navigation-content', 0, { y: '-100%' });
+        
+        // Hide all pages
+        const pages = ['#header', '#about', '#portfolio', '#contact'];
+        pages.forEach(p => gsap.to(p, 0, { display: "none" }));
+        
+        // Show target page
+        gsap.to(targetPageId, 0, { display: "block" });
+        
+        // Re-enable nav menu layout
+        gsap.to('#navigation-content', 0, { display: 'flex' });
+    };
 
-    $('#about-link').on('click',function(){
-      gsap.to('#navigation-content',0,{display:"none",delay:.7});
-      gsap.to('#navigation-content',0,{y:'-100%',delay:.7});
-  gsap.to('#header',0,{display:"none"});
-gsap.to('#portfolio',0,{display:"none"});
-   gsap.to('#breaker',0,{display:"block"});
-   gsap.to('#breaker-two',0,{display:"block",delay:.1});
-gsap.to('#contact',0,{display:"none"});
-   gsap.to('#breaker',0,{display:"none",delay:2});
-   gsap.to('#breaker-two',0,{display:"none",delay:2});
-   gsap.to('#about',0,{display:"block",delay:.7});
-   gsap.to('#navigation-content',0,{display:'flex',delay:2});
- })
- $('#contact-link').on('click',function(){
-   gsap.to('#navigation-content',0,{display:"none",delay:.7});
-   gsap.to('#navigation-content',0,{y:'-100%',delay:.7});
-gsap.to('#header',0,{display:"none"});
-gsap.to('#about',0,{display:"none"});
-gsap.to('#portfolio',0,{display:"none"});
-gsap.to('#breaker',0,{display:"block"});
-gsap.to('#breaker-two',0,{display:"block",delay:.1});
-gsap.to('#breaker',0,{display:"none",delay:2});
-gsap.to('#breaker-two',0,{display:"none",delay:2});
-gsap.to('#contact',0,{display:"block",delay:.7});
-gsap.to('#navigation-content',0,{display:'flex',delay:2});
-})
-$('#portfolio-link').on('click',function(){
-  gsap.to('#navigation-content',0,{display:"none",delay:.7});
-  gsap.to('#navigation-content',0,{y:'-100%',delay:.7});
-gsap.to('#header',0,{display:"none"});
-gsap.to('#about',0,{display:"none"});
-gsap.to('#contact',0,{display:"none"});
-gsap.to('#breaker',0,{display:"block"});
-gsap.to('#breaker-two',0,{display:"block",delay:.1});
-gsap.to('#breaker',0,{display:"none",delay:2});
-gsap.to('#breaker-two',0,{display:"none",delay:2});
-gsap.to('#portfolio',0,{display:"block",delay:.7});
-gsap.to('#navigation-content',0,{display:'flex',delay:2});
-})
-const goToHome = (Event) => {
-  if (Event) Event.preventDefault();
-  gsap.to('#navigation-content',0,{display:"none",delay:.7});
-  gsap.to('#navigation-content',0,{y:'-100%',delay:.7});
-  gsap.to('#header',0,{display:"none"});
-  gsap.to('#about',0,{display:"none"});
-  gsap.to('#portfolio',0,{display:"none"});
-  gsap.to('#contact',0,{display:"none"});
-  gsap.to('#breaker',0,{display:"block"});
-  gsap.to('#breaker-two',0,{display:"block",delay:.1});
-  gsap.to('#breaker',0,{display:"none",delay:2});
-  gsap.to('#breaker-two',0,{display:"none",delay:2});
-  gsap.to('#header',0,{display:"block",delay:.7});
-  gsap.to('#navigation-content',0,{display:'flex',delay:2});
-};
+    const transitionToPage = (targetPageId) => {
+        const overlay = document.getElementById('transition-overlay');
+        if (!overlay) {
+            switchPage(targetPageId);
+            return;
+        }
 
-$('#home-link, .js-home-link').on('click', goToHome);
+        overlay.style.pointerEvents = 'auto'; // Prevent clicking during transition
+        
+        const stripes = overlay.querySelectorAll('.transition-stripe');
+        
+        // Randomly pick a direction: top, bottom, left, right
+        const directions = ['top', 'bottom', 'left', 'right'];
+        const chosenDir = directions[Math.floor(Math.random() * directions.length)];
+        
+        // Reset properties
+        gsap.set(stripes, { scaleX: 1, scaleY: 1 });
+        
+        const tl = gsap.timeline();
+        
+        if (chosenDir === 'top') {
+            overlay.style.flexDirection = 'row';
+            gsap.set(stripes, { scaleY: 0, transformOrigin: 'top' });
+            
+            tl.to(stripes, {
+                scaleY: 1,
+                duration: 0.5,
+                ease: 'power3.inOut',
+                stagger: 0.08
+            })
+            .add(() => switchPage(targetPageId))
+            .to(stripes, {
+                scaleY: 0,
+                duration: 0.5,
+                ease: 'power3.inOut',
+                stagger: 0.08,
+                transformOrigin: 'bottom'
+            });
+        } else if (chosenDir === 'bottom') {
+            overlay.style.flexDirection = 'row';
+            gsap.set(stripes, { scaleY: 0, transformOrigin: 'bottom' });
+            
+            tl.to(stripes, {
+                scaleY: 1,
+                duration: 0.5,
+                ease: 'power3.inOut',
+                stagger: 0.08
+            })
+            .add(() => switchPage(targetPageId))
+            .to(stripes, {
+                scaleY: 0,
+                duration: 0.5,
+                ease: 'power3.inOut',
+                stagger: 0.08,
+                transformOrigin: 'top'
+            });
+        } else if (chosenDir === 'left') {
+            overlay.style.flexDirection = 'column';
+            gsap.set(stripes, { scaleX: 0, transformOrigin: 'left' });
+            
+            tl.to(stripes, {
+                scaleX: 1,
+                duration: 0.5,
+                ease: 'power3.inOut',
+                stagger: 0.08
+            })
+            .add(() => switchPage(targetPageId))
+            .to(stripes, {
+                scaleX: 0,
+                duration: 0.5,
+                ease: 'power3.inOut',
+                stagger: 0.08,
+                transformOrigin: 'right'
+            });
+        } else if (chosenDir === 'right') {
+            overlay.style.flexDirection = 'column';
+            gsap.set(stripes, { scaleX: 0, transformOrigin: 'right' });
+            
+            tl.to(stripes, {
+                scaleX: 1,
+                duration: 0.5,
+                ease: 'power3.inOut',
+                stagger: 0.08
+            })
+            .add(() => switchPage(targetPageId))
+            .to(stripes, {
+                scaleX: 0,
+                duration: 0.5,
+                ease: 'power3.inOut',
+                stagger: 0.08,
+                transformOrigin: 'left'
+            });
+        }
+        
+        tl.eventCallback('onComplete', () => {
+            overlay.style.pointerEvents = 'none'; // Re-enable clicks
+        });
+    };
 
+    $('#about-link').on('click', function(){
+        transitionToPage('#about');
+    });
+    $('#contact-link').on('click', function(){
+        transitionToPage('#contact');
+    });
+    $('#portfolio-link').on('click', function(){
+        transitionToPage('#portfolio');
+    });
+    $('#home-link, .js-home-link').on('click', function(e){
+        if (e) e.preventDefault();
+        transitionToPage('#header');
+    });
 })
 $(function(){
  var body =  document.querySelector('body');
