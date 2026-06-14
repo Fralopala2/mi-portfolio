@@ -1463,7 +1463,7 @@ button:hover .index {
   flex-direction: column;
   align-items: center;
   gap: 0;
-  padding: 20px;
+  padding: 0px;
   height: auto;
   overflow: hidden;
 }
